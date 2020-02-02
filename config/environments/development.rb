@@ -36,6 +36,22 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  config.action_mailer.default_options = { from: 'no-reply@example.com', reply_to: 'no-reply@example.com' }
+
+  config.action_mailer.default_url_options = { host: ENV.fetch("SPACED_HOST"), port: ENV.fetch("SPACED_PORT") }
+
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    address:              ENV.fetch("SPACED_SMTP_HOST"),
+    port:                 ENV.fetch("SPACED_SMTP_PORT", 587),
+    domain:               ENV.fetch("SPACED_SMTP_DOMAIN", nil),
+    user_name:            ENV.fetch("SPACED_SMTP_USERNAME"),
+    password:             ENV.fetch("SPACED_SMTP_PASSWORD"),
+    authentication:       'plain',
+    enable_starttls_auto: true
+  }
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 

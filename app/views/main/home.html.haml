@@ -1,17 +1,6 @@
-%section.hero.is-medium.is-dark.is-bold.is-fullheight
-  .hero-head
-    .navbar
-      .container
-        .navbar-brand
-          .navbar-item
-            %h1.title SPACED
-        .navbar-menu
-          .navbar-start
-          .navbar-end
-            %a.navbar-item{href: "/"} Register
-            %a.navbar-item{href: "/"} Login
+%section.hero.is-medium.is-dark.is-bold.is-fullheight-with-navbar
   .hero-body
     .container
       %h1.title Improve your memory with the spaced repetition technique
       %h2.subtitle
-        %a{href: "/"} Register here
+        = link_to "Start here", new_user_registration_path

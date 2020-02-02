@@ -1,0 +1,10 @@
+%section
+  .container
+    - if alert
+      .notification.is-alert.is-light
+        %button.delete
+        = alert
+    - if notice
+      .notification.is-light
+        %button.delete
+        = notice

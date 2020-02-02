@@ -1,0 +1,16 @@
+%section.section
+  .container
+    .columns
+      .column.is-4.is-offset-4
+        %h2.subtitle Forgot your password?
+        = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+          = render "devise/shared/error_messages", resource: resource
+          .field
+            = f.label :email
+            .control
+              = f.email_field :email, autofocus: true, autocomplete: "email"
+          .field.is-grouped
+            .control
+              = f.submit "Reset password", class: "button is-dark"
+            .control
+              = link_to "Cancel", root_path, class: "button is-light"

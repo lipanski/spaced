@@ -8,8 +8,8 @@ gem 'puma', '~> 4.1'
 gem "haml-rails"
 gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+
+gem 'devise'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -18,6 +18,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'dotenv-rails'
 end
 
 group :development do
