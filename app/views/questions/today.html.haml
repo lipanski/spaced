@@ -1,0 +1,18 @@
+%section
+  .container
+    %h1 Your memory exercise for today
+    %h2 Answer the following questions, then rate how well you performed
+    .columns
+      .column.is-8
+        .card
+          .card-content
+            .content
+              %p.title
+                = @question.description
+              = link_to "Show answer", "#", data: { show_answer: "question_#{@question.id}" }
+              %p.is-hidden[@question]
+                = @question.answer
+          %footer.card-footer
+            - (0..5).each do |rating|
+              %a.card-footer-item
+                = rating

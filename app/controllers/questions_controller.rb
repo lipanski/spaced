@@ -41,6 +41,10 @@ class QuestionsController < ApplicationController
     redirect_to questions_url, notice: "The question was successfully removed."
   end
 
+  def today
+    @question = Question.where(user: current_user).order("RANDOM()").first
+  end
+
   def generate
     GenerateQuestions.new(current_user).call
     redirect_to questions_path

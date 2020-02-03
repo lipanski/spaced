@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class QuestionDecorator < Draper::Decorator
   delegate :description, :answer, :persisted?
 

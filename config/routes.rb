@@ -9,6 +9,6 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  # Post-login default page
-  get "questions", to: "questions#index", as: :user_root
+  # Post-login route
+  get "today", to: "questions#today", as: :user_root
 end
