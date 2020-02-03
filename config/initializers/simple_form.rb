@@ -1,17 +1,7 @@
 # frozen_string_literal: true
 
-#
-# Uncomment this and change the path if necessary to include your own
-# components.
-# See https://github.com/plataformatec/simple_form#custom-components to know
-# more about custom components.
-# Dir[Rails.root.join('lib/components/**/*.rb')].each { |f| require f }
-#
-# Use this setup block to configure all options available in SimpleForm.
 SimpleForm.setup do |config|
-  config.wrappers(:default,
-                  tag: "div",
-                  class: "field") do |b|
+  config.wrappers(:default, tag: "div", class: "field") do |b|
     b.use :html5
     b.use :placeholder
 
@@ -21,17 +11,9 @@ SimpleForm.setup do |config|
     b.optional(:min_max)
     b.optional(:readonly)
 
-    # Inputs
-    # b.use :input, class: 'input', error_class: 'is-invalid', valid_class: 'is-valid'
     b.use :label_input, wrap_with: { class: :control }, error_class: "is-danger"
     b.use :hint,  wrap_with: { tag: :p, class: :help }
     b.use :error, wrap_with: { tag: :p, class: "help is-danger" }
-
-    ## full_messages_for
-    # If you want to display the full error message for the attribute, you can
-    # use the component :full_error, like:
-    #
-    # b.use :full_error, wrap_with: { tag: :span, class: :error }
   end
 
   # The default wrapper to be used by the FormBuilder.

@@ -13,7 +13,8 @@
 #
 # Indexes
 #
-#  index_questions_on_user_id  (user_id)
+#  index_questions_on_description  (description) UNIQUE
+#  index_questions_on_user_id      (user_id)
 #
 # Foreign Keys
 #

@@ -3,7 +3,9 @@
 Rails.application.routes.draw do
   root to: "main#home"
 
-  resources :questions, except: [:show]
+  resources :questions, except: [:show] do
+    post "generate", on: :collection
+  end
 
   devise_for :users
 

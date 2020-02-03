@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2020_02_03_114553) do
     t.string "answer", limit: 250, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["description"], name: "index_questions_on_description", unique: true
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
 

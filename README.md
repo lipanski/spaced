@@ -1,24 +1,47 @@
-# README
+# Spaced
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A web app to improve your memory by using the spaced repetition method.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+Requirements:
 
-* System dependencies
+- Ruby 2.5.3
+- Postgres
+- Yarn
+- (Optional) SMTP credentials for sending out emails
 
-* Configuration
+Install application dependencies:
 
-* Database creation
+```sh
+bundle Install
+```
 
-* Database initialization
+Install frontend dependencies:
 
-* How to run the test suite
+```sh
+yarn install
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Create a `.env` file from the available example and fill in the blanks:
 
-* Deployment instructions
+```sh
+cp .env.example .env
+edit .env
+```
 
-* ...
+Setup the databases:
+
+```sh
+bundle exec rake db:setup
+```
+
+Run the server:
+
+```sh
+bundle exec rails s
+```
+
+## References/Credits
+
+- Source for the German to English dictionaries: <https://github.com/hathibelagal/German-English-JSON-Dictionary>

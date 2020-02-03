@@ -2,7 +2,7 @@
 
 class QuestionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :set_question, only: [:edit, :update, :destroy]
 
   def index
     @questions = Question.where(user: current_user).all
@@ -37,6 +37,11 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
     redirect_to questions_url, notice: "The question was successfully removed."
+  end
+
+  def generate
+    GenerateQuestions.new(current_user).call
+    redirect_to questions_path
   end
 
   private
