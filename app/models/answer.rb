@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: answers
@@ -25,6 +27,6 @@ class Answer < ApplicationRecord
   belongs_to :question
 
   validates :grade,
-    presence: true,
-    numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
+            presence: true,
+            numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
 end
