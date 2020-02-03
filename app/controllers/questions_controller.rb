@@ -42,6 +42,10 @@ class QuestionsController < ApplicationController
   end
 
   def today
+    unless Question.where(user: current_user).exists?
+      redirect_to questions_url
+    end
+
     @question = Question.where(user: current_user).order("RANDOM()").first
   end
 
