@@ -1,10 +1,10 @@
 %section
   .container
-    - if @question
-      %h1 Let's learn something new today
-      %h2 Answer the following questions, then rate how well you performed.
-      .columns
-        .column.is-8
+    .columns
+      .column.is-8
+        - if @question
+          %h1 Let's learn something new today
+          %h2 Answer the following questions, then rate how well you performed
           = render "shared/notifications"
           .card
             .card-content
@@ -29,6 +29,6 @@
             3 - correct response, recalled with serious difficulty;
             4 - correct response after a hesitation;
             5 - perfect response
-    - else
-      %h1 Good job!
-      %h2 You've answered all the questions for today. Come back tomorrow for more.
+        - else
+          %h1 Good job!
+          %h2 You've answered all the questions for today. Come back tomorrow for more.

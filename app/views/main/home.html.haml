@@ -3,4 +3,4 @@
     .container
       %h1 Improve your memory with the spaced repetition technique
       %h2
-        = link_to "Start here", new_user_registration_path
+        = link_to "Start here", user_signed_in? ? user_root_path : new_user_registration_path

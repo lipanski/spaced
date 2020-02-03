@@ -2,7 +2,8 @@
   .container
     .columns
       .column.is-4.is-offset-4
-        %h2 Log in
+        %h1 Log in
+        %h2 You're almost there
         = render "shared/notifications"
         = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
