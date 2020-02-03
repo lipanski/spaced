@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_02_03_210808) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "interval", default: 1, null: false
     t.decimal "e_factor", default: "2.5", null: false
-    t.datetime "last_answered_at"
+    t.datetime "due_at", default: -> { "now()" }, null: false
     t.index ["user_id", "created_at"], name: "index_questions_on_user_id_and_created_at"
     t.index ["user_id", "description"], name: "index_questions_on_user_id_and_description", unique: true
     t.index ["user_id"], name: "index_questions_on_user_id"

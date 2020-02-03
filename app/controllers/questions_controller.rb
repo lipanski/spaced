@@ -46,7 +46,7 @@ class QuestionsController < ApplicationController
       redirect_to questions_url
     end
 
-    @question = current_user.questions.order("RANDOM()").first
+    @question = FindNextQuestion.new(current_user).call
   end
 
   def generate

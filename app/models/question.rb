@@ -4,15 +4,15 @@
 #
 # Table name: questions
 #
-#  id               :bigint           not null, primary key
-#  description      :string(250)      not null
-#  e_factor         :decimal(, )      default(2.5), not null
-#  expected_answer  :string(250)      not null
-#  interval         :integer          default(1), not null
-#  last_answered_at :datetime
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
-#  user_id          :bigint           not null
+#  id              :bigint           not null, primary key
+#  description     :string(250)      not null
+#  due_at          :datetime         not null
+#  e_factor        :decimal(, )      default(2.5), not null
+#  expected_answer :string(250)      not null
+#  interval        :integer          default(1), not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  user_id         :bigint           not null
 #
 # Indexes
 #
