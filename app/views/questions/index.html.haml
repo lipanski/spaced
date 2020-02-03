@@ -1,7 +1,10 @@
 %section
   .container
-    %h1 Let's learn something new today
-    %h2 Add all your questions and answers, then come back every day to train your memory.
+    %h1 My questions
+    %h2
+      Add the questions and answers you'd like to memorize here, then click on
+      = link_to "Today", user_root_path
+      to get your daily memory exercise.
     = link_to "Add a new question", new_question_path, class: "button is-dark"
     = link_to "Generate 500 random questions", generate_questions_path, method: :post, class: "button is-dark", data: { confirm: "Are you sure?" }
     %hr
