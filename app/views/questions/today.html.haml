@@ -20,3 +20,11 @@
           %footer.card-footer.is-hidden[@question, "enabled_links"]
             - (0..5).each do |grade|
               = link_to grade, question_answers_path(question_id: @question, grade: grade), method: :post, class: "card-footer-item"
+        %br
+        .content.is-small
+          0 - complete blackout;
+          1 - incorrect response, the correct one was remembered;
+          2 - incorrect response, the correct one seemed easy to recall;
+          3 - correct response, recalled with serious difficulty;
+          4 - correct response after a hesitation;
+          5 - perfect response

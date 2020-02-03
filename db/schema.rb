@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_03_194456) do
+ActiveRecord::Schema.define(version: 2020_02_03_210808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,9 @@ ActiveRecord::Schema.define(version: 2020_02_03_194456) do
     t.string "expected_answer", limit: 250, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "interval", default: 1, null: false
+    t.decimal "e_factor", default: "2.5", null: false
+    t.datetime "last_answered_at"
     t.index ["user_id", "created_at"], name: "index_questions_on_user_id_and_created_at"
     t.index ["user_id", "description"], name: "index_questions_on_user_id_and_description", unique: true
     t.index ["user_id"], name: "index_questions_on_user_id"

@@ -5,18 +5,12 @@ class AnswersController < ApplicationController
 
   def create
     question = current_user.questions.find(params[:question_id])
-    answer = Answer.new(answer_params.merge!(user: current_user, question: question))
+    answered = AnswerQuestion.new(current_user, question, params[:grade]).call
 
-    unless answer.save
+    unless answered
       flash[:alert] = "Couldn't save your answer. Please try again."
     end
 
     redirect_to user_root_url
-  end
-
-  private
-
-  def answer_params
-    params.permit(:grade)
   end
 end

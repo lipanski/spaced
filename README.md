@@ -14,7 +14,7 @@ Requirements:
 Install application dependencies:
 
 ```sh
-bundle Install
+bundle install
 ```
 
 Install frontend dependencies:
@@ -42,6 +42,9 @@ Run the server:
 bundle exec rails s
 ```
 
-## References/Credits
+## Reference/Credits
 
-- Source for the German to English dictionaries: <https://github.com/hathibelagal/German-English-JSON-Dictionary>
+- SuperMemo2 Algorithm: <https://www.supermemo.com/en/archives1990-2015/english/ol/sm2>
+- <https://en.wikipedia.org/wiki/SuperMemo>
+- <http://www.blueraja.com/blog/477/a-better-spaced-repetition-learning-algorithm-sm2>
+- German to English Dictionaries: <https://github.com/hathibelagal/German-English-JSON-Dictionary>
