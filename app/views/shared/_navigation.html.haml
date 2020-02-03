@@ -3,7 +3,7 @@
     .navbar-brand
       .navbar-item
         %h1
-          = link_to "SPACED", root_path
+          = link_to "SPACED", user_signed_in? ? user_root_path : root_path
     .navbar-menu
       .navbar-start
       .navbar-end
