@@ -13,8 +13,8 @@
 #
 # Indexes
 #
-#  index_questions_on_description  (description) UNIQUE
-#  index_questions_on_user_id      (user_id)
+#  index_questions_on_user_id                  (user_id)
+#  index_questions_on_user_id_and_description  (user_id,description) UNIQUE
 #
 # Foreign Keys
 #
@@ -24,6 +24,6 @@
 class Question < ApplicationRecord
   belongs_to :user
 
-  validates :description, presence: true, length: { maximum: 250 }
+  validates :description, presence: true, uniqueness: { scope: :user_id }, length: { maximum: 250 }
   validates :answer, presence: true, length: { maximum: 250 }
 end

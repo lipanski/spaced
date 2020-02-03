@@ -13,6 +13,7 @@ gem "puma", "~> 4.1"
 
 gem "draper"
 gem "haml-rails"
+gem "pagy"
 gem "sass-rails", ">= 6"
 gem "turbolinks", "~> 5"
 gem "simple_form"

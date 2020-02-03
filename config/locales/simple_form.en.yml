@@ -9,6 +9,7 @@ en:
     labels:
       question:
         description: Question
+        repeat: Add another
     hints:
       defaults:
         password: "(6 characters minimum)"

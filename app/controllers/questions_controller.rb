@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: [:edit, :update, :destroy]
 
   def index
-    @questions = Question.where(user: current_user).all
+    @pagy, @questions = pagy_countless(Question.where(user: current_user), items: 50)
   end
 
   def new

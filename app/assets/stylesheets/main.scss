@@ -1,7 +1,10 @@
+$pagination-current-background-color: #1c1c1c;
+$pagination-current-border-color: #1c1c1c;
+
 @import "../node_modules/bulma/bulma.sass";
 
 .navbar .navbar-brand a {
-  color: #363636;
+  @extend .has-text-dark;
 }
 
 section {
