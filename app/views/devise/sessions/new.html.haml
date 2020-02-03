@@ -3,24 +3,13 @@
     .columns
       .column.is-4.is-offset-4
         %h2.subtitle Log in
-        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-          .field
-            = f.label :email
-            .control
-              = f.email_field :email, autofocus: true, autocomplete: "email"
-          .field
-            = f.label :password
-            .control
-              = f.password_field :password, autocomplete: "current-password"
-          - if devise_mapping.rememberable?
-            .field
-              .control
-                = f.check_box :remember_me
-                = f.label :remember_me
+        = render "shared/notifications"
+        = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          = f.input :email
+          = f.input :password, hint: false
+          = f.input :remember_me, as: :boolean
           .field.is-grouped
-            .control
-              = f.submit "Log in", class: "button is-dark"
-            .control
-              = link_to "Cancel", root_path, class: "button is-light"
+            = f.submit "Log in", class: "control button is-dark"
+            = link_to "Cancel", root_path, class: "control button is-light"
         %hr
         = link_to "Forgot your password?", new_user_password_path

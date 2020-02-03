@@ -8,6 +8,7 @@ gem 'puma', '~> 4.1'
 gem "haml-rails"
 gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
+gem 'simple_form'
 
 gem 'devise'
 
