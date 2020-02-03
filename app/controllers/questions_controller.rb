@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: [:edit, :update, :destroy]
 
   def index
-    query = Question.where(user: current_user).order(created_at: :desc)
+    query = current_user.questions.order(created_at: :desc)
     @pagy, @questions = pagy_countless(query, items: 50)
     @questions = QuestionDecorator.decorate_collection(@questions)
   end
@@ -42,11 +42,11 @@ class QuestionsController < ApplicationController
   end
 
   def today
-    unless Question.where(user: current_user).exists?
+    unless current_user.questions.exists?
       redirect_to questions_url
     end
 
-    @question = Question.where(user: current_user).order("RANDOM()").first
+    @question = current_user.questions.order("RANDOM()").first
   end
 
   def generate
@@ -57,7 +57,7 @@ class QuestionsController < ApplicationController
   private
 
   def set_question
-    @question = Question.where(user: current_user).find(params[:id])
+    @question = current_user.questions.find(params[:id])
   end
 
   def question_params

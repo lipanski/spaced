@@ -2,6 +2,7 @@
 
 class NewQuestionDecorator < Draper::Decorator
   decorates :question
+
   delegate_all
 
   attr_accessor :repeat
