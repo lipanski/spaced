@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -28,7 +30,7 @@
 #  index_users_on_unlock_token          (unlock_token) UNIQUE
 #
 
-require 'test_helper'
+require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
   # test "the truth" do

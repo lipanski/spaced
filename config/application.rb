@@ -1,4 +1,6 @@
-require_relative 'boot'
+# frozen_string_literal: true
+
+require_relative "boot"
 
 require "rails"
 # Pick the frameworks you want:
@@ -22,7 +24,7 @@ Bundler.require(*Rails.groups)
 module Spaced
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.0
+    config.load_defaults(6.0)
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

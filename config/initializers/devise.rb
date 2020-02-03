@@ -8,7 +8,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '10fadb043ef81b240faea840af47b99d25f7e389bd9d148f4989a9bf0bbd4a900216f5cd777a02596be1e6117e73500983d27c34c6c507369150e1769e196562'
+  # config.secret_key = '10fadb043ef81b240faea840af47b99d25f7e389bd9d148f4989a9bf0bbd4a900216f5cd77'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -18,7 +18,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -30,7 +30,7 @@ Devise.setup do |config|
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
-  require 'devise/orm/active_record'
+  require "devise/orm/active_record"
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
@@ -114,7 +114,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'e38b5ed1bd8bd364cf9fe47fd3a6fc37b5bb24bbfc40b549dea2ff4c1984162aa249c2241f9d5e2354f19f39cfce4a02ceac37f6aaa5f6ad5c2cbe264194a2fe'
+  # config.pepper = 'e38b5ed1bd8bd364cf9fe47fd3a6fc37b5bb24bbfc40b549dea2ff4c1984162aa249c2241f9'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
