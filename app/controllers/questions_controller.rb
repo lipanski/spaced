@@ -5,7 +5,9 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: [:edit, :update, :destroy]
 
   def index
-    @pagy, @questions = pagy_countless(Question.where(user: current_user), items: 50)
+    query = Question.where(user: current_user).order(created_at: :desc)
+    @pagy, @questions = pagy_countless(query, items: 50)
+    @questions = QuestionDecorator.decorate_collection(@questions)
   end
 
   def new

@@ -11,8 +11,11 @@
       - @questions.each do |question|
         %article.message
           .message-body.is-dark
-            %p.has-text-weight-bold
+            %p.has-text-weight-bold.is-pulled-left
               = question.description
+            %p.is-pulled-right.is-size-7
+              = question.created_at
+            .is-clearfix
             %p
               = question.answer
             %p.is-size-7
