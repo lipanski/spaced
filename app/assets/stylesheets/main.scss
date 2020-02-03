@@ -30,3 +30,10 @@ h1 {
 h2 {
   @extend .subtitle;
 }
+
+a[disabled] {
+  @extend .has-text-grey;
+  cursor: not-allowed;
+  text-decoration: none;
+  opacity: 0.7;
+}

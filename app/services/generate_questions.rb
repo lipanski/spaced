@@ -19,7 +19,7 @@ class GenerateQuestions
     now = Time.now
 
     entries = generate_random_questions.each_with_object([]) do |(key, value), acc|
-      acc << { description: key, answer: value, user_id: @user.id, created_at: now, updated_at: now }
+      acc << { description: key, expected_answer: value, user_id: @user.id, created_at: now, updated_at: now }
     end
 
     Question.insert_all(entries)

@@ -16,7 +16,7 @@ class QuestionsTest < ApplicationSystemTestCase
     visit questions_url
     click_on "New Question"
 
-    fill_in "Answer", with: @question.answer
+    fill_in "Answer", with: @question.expected_answer
     fill_in "Description", with: @question.description
     fill_in "User", with: @question.user_id
     click_on "Create Question"
@@ -29,7 +29,7 @@ class QuestionsTest < ApplicationSystemTestCase
     visit questions_url
     click_on "Edit", match: :first
 
-    fill_in "Answer", with: @question.answer
+    fill_in "Answer", with: @question.expected_answer
     fill_in "Description", with: @question.description
     fill_in "User", with: @question.user_id
     click_on "Update Question"

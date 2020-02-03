@@ -4,12 +4,12 @@
 #
 # Table name: questions
 #
-#  id          :bigint           not null, primary key
-#  answer      :string(250)      not null
-#  description :string(250)      not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  user_id     :bigint           not null
+#  id              :bigint           not null, primary key
+#  description     :string(250)      not null
+#  expected_answer :string(250)      not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  user_id         :bigint           not null
 #
 # Indexes
 #

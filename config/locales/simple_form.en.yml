@@ -15,4 +15,4 @@ en:
         password: "(6 characters minimum)"
       question:
         description: "(250 characters maximum)"
-        answer: "(250 characters maximum)"
+        expected_answer: "(250 characters maximum)"

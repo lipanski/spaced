@@ -13,13 +13,17 @@ document.addEventListener("turbolinks:load", function() {
     });
   });
 
-  (document.querySelectorAll("a[data-show-answer]") || []).forEach(function(item) {
+  (document.querySelectorAll("a[data-answer-for-question]") || []).forEach(function(item) {
     item.addEventListener("click", function(event) {
       event.preventDefault();
-      var answer = document.getElementById(item.getAttribute("data-show-answer"));
+      var question = item.getAttribute("data-answer-for-question");
+      var answer = document.getElementById("answer_" + question);
       if (answer) {
         answer.classList.remove("is-hidden");
         item.classList.add("is-hidden");
+
+        document.getElementById("disabled_links_" + question).classList.add("is-hidden");
+        document.getElementById("enabled_links_" + question).classList.remove("is-hidden");
       }
     });
   });

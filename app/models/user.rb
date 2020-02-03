@@ -35,7 +35,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :trackable, :lockable
 
-  has_many :questions, dependent: :delete_all
+  has_many :questions, dependent: :destroy
+  has_many :answers
 
   validates :name, presence: true, length: { maximum: 250 }
   validates :email, presence: true, uniqueness: true, length: { maximum: 250 }

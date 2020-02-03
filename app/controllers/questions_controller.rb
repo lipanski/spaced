@@ -51,7 +51,7 @@ class QuestionsController < ApplicationController
 
   def generate
     GenerateQuestions.new(current_user).call
-    redirect_to questions_path
+    redirect_to questions_url
   end
 
   private
@@ -61,6 +61,6 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:description, :answer)
+    params.require(:question).permit(:description, :expected_answer)
   end
 end

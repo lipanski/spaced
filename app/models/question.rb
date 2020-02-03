@@ -4,12 +4,12 @@
 #
 # Table name: questions
 #
-#  id          :bigint           not null, primary key
-#  answer      :string(250)      not null
-#  description :string(250)      not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  user_id     :bigint           not null
+#  id              :bigint           not null, primary key
+#  description     :string(250)      not null
+#  expected_answer :string(250)      not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  user_id         :bigint           not null
 #
 # Indexes
 #
@@ -24,7 +24,8 @@
 
 class Question < ApplicationRecord
   belongs_to :user
+  has_many :answers, dependent: :destroy
 
   validates :description, presence: true, uniqueness: { scope: :user_id }, length: { maximum: 250 }
-  validates :answer, presence: true, length: { maximum: 250 }
+  validates :expected_answer, presence: true, length: { maximum: 250 }
 end

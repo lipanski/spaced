@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :questions, except: [:show] do
     post "generate", on: :collection
+
+    resources :answers, only: [:create]
   end
 
   devise_for :users
