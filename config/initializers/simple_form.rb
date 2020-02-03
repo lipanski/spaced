@@ -21,7 +21,7 @@ SimpleForm.setup do |config|
     b.optional(:min_max)
     b.optional(:readonly)
 
-    ## Inputs
+    # Inputs
     # b.use :input, class: 'input', error_class: 'is-invalid', valid_class: 'is-valid'
     b.use :label_input, wrap_with: { class: :control }, error_class: "is-danger"
     b.use :hint,  wrap_with: { tag: :p, class: :help }
@@ -55,7 +55,7 @@ SimpleForm.setup do |config|
   config.error_notification_tag = :div
 
   # CSS class to add for error notification helper.
-  config.error_notification_class = "error_notification"
+  config.error_notification_class = "content notification is-danger is-light"
 
   # Series of attempts to detect a default label method for collection.
   # config.collection_label_methods = [ :to_label, :name, :title, :to_s ]

@@ -1,10 +1,11 @@
-%section.section
+%section
   .container
     .columns
       .column.is-4.is-offset-4
-        %h2.subtitle Log in
+        %h2 Log in
         = render "shared/notifications"
         = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
           = f.input :email
           = f.input :password, hint: false
           = f.input :remember_me, as: :boolean

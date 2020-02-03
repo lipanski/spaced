@@ -1,9 +1,8 @@
-.content
-  - if alert
-    .notification.is-danger.is-light
-      %button.delete
-      = alert
-  - if notice
-    .notification.is-light
-      %button.delete
-      = notice
+- if alert
+  .content.notification.is-danger.is-light
+    %button.delete
+    = alert
+- if notice
+  .content.notification.is-light
+    %button.delete
+    = notice

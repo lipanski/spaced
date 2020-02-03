@@ -3,7 +3,10 @@
 Rails.application.routes.draw do
   root to: "main#home"
 
-  get "restricted", to: "main#restricted"
+  resources :questions, except: [:show]
 
   devise_for :users
+
+  # Post-login default page
+  get "questions", to: "questions#index", as: :user_root
 end

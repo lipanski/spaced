@@ -4,10 +4,26 @@
   color: #363636;
 }
 
+section {
+  @extend .section;
+}
+
 label {
   @extend .label;
 }
 
 input[type="text"], input[type="email"], input[type="password"] {
   @extend .input;
+}
+
+textarea {
+  @extend .textarea;
+}
+
+h1 {
+  @extend .title;
+}
+
+h2 {
+  @extend .subtitle;
 }

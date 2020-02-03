@@ -1,8 +1,8 @@
-%section.section
+%section
   .container
     .columns
       .column.is-4.is-offset-4
-        %h2.subtitle Forgot your password?
+        %h2 Forgot your password?
         = render "shared/notifications"
         = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
           = f.input :email

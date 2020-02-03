@@ -1,0 +1,7 @@
+= simple_form_for(@question) do |f|
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+  = f.input :description
+  = f.input :answer, as: :text
+  .field.is-grouped
+    = f.button :submit, class: "control button is-dark"
+    = link_to "Cancel", :back, class: "control button is-light"
