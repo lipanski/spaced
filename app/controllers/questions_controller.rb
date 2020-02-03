@@ -9,16 +9,18 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = Question.new
+    @question = NewQuestionDecorator.new(Question.new)
   end
 
   def edit; end
 
   def create
-    @question = Question.new(question_params.merge!(user: current_user))
+    raw_question = Question.new(question_params.merge!(user: current_user))
+    @question = NewQuestionDecorator.new(raw_question, repeat: params[:question][:repeat])
 
     if @question.save
-      redirect_to questions_url, notice: "The question was successfully added."
+      redirect_url = @question.repeat ? new_question_url : questions_url
+      redirect_to redirect_url, notice: "The question was successfully added."
     else
       render :new
     end
@@ -40,7 +42,7 @@ class QuestionsController < ApplicationController
   private
 
   def set_question
-    @question = Question.find(params[:id])
+    @question = Question.where(user: current_user).find(params[:id])
   end
 
   def question_params

@@ -11,6 +11,7 @@ gem "devise"
 gem "pg", ">= 0.18", "< 2.0"
 gem "puma", "~> 4.1"
 
+gem "draper"
 gem "haml-rails"
 gem "sass-rails", ">= 6"
 gem "turbolinks", "~> 5"
