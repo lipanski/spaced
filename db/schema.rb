@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_03_210808) do
+ActiveRecord::Schema.define(version: 2020_02_03_223046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_02_03_210808) do
     t.datetime "due_at", default: -> { "now()" }, null: false
     t.index ["user_id", "created_at"], name: "index_questions_on_user_id_and_created_at"
     t.index ["user_id", "description"], name: "index_questions_on_user_id_and_description", unique: true
+    t.index ["user_id", "due_at"], name: "index_questions_on_user_id_and_due_at"
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
