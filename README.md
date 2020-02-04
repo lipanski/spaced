@@ -48,3 +48,7 @@ bundle exec rails s
 - <https://en.wikipedia.org/wiki/SuperMemo>
 - <http://www.blueraja.com/blog/477/a-better-spaced-repetition-learning-algorithm-sm2>
 - German to English Dictionaries: <https://github.com/hathibelagal/German-English-JSON-Dictionary>
+
+---
+
+Copyright (C) Florin Lipan, 2020
