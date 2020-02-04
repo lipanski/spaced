@@ -1,6 +1,6 @@
 # Spaced
 
-A web app to improve your memory by using the spaced repetition method.
+A web app to help you improve your memory by using the spaced repetition method.
 
 ## Installation
 

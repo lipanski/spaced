@@ -6,6 +6,11 @@ class QuestionsController < ApplicationController
 
   def index
     query = current_user.questions.order(created_at: :desc)
+
+    if params[:q].present?
+      query = query.reorder("").search(params[:q])
+    end
+
     @pagy, @questions = pagy_countless(query, items: 50)
     @questions = QuestionDecorator.decorate_collection(@questions)
   end

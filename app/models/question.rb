@@ -27,6 +27,14 @@
 #
 
 class Question < ApplicationRecord
+  include PgSearch::Model
+
+  # NOTE: simple and decently fast search
+  pg_search_scope(:search,
+    against: { description: "A", expected_answer: "D" },
+    using: { tsearch: { prefix: true } }
+  )
+
   belongs_to :user
   has_many :answers, dependent: :destroy
 

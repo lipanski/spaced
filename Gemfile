@@ -9,6 +9,7 @@ gem "rails", "~> 6.0.2", ">= 6.0.2.1"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "devise"
 gem "pg", ">= 0.18", "< 2.0"
+gem "pg_search"
 gem "puma", "~> 4.1"
 
 gem "draper"
@@ -24,7 +25,7 @@ gem "simple_form" # NOTE: keeps forms very DRY
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "dotenv-rails"
-  gem "rubocop"
+  gem "rubocop" # NOTE: use a common style (but nothing too intrusive)
 end
 
 group :development do
