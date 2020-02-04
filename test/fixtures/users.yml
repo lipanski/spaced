@@ -30,12 +30,14 @@
 
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: One
-  email: one@example.com
-  questions_per_day: 1
+mario:
+  name: Mario
+  email: mario@example.com
 
-two:
-  name: Two
-  email: two@example.com
-  questions_per_day: 1
+luigi:
+  name: Luigi
+  email: luigi@example.com
+
+without_questions:
+  name: No Questions
+  email: no-questions@example.com

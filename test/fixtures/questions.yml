@@ -27,12 +27,17 @@
 
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user: one
-  description: MyString
-  expected_answer: MyString
+paris:
+  user: mario
+  description: What is the capital of France?
+  expected_answer: Paris
 
-two:
-  user: two
-  description: MyString
-  expected_answer: MyString
+berlin:
+  user: mario
+  description: What is the capital of Germany?
+  expected_answer: Berlin
+
+tokyo:
+  user: mario
+  description: What is the capital of Japan?
+  expected_answer: Tokyo

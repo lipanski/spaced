@@ -3,55 +3,50 @@
 require "test_helper"
 
 class QuestionsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
-    @question = questions(:one)
+    @user = users(:mario)
+    sign_in(@user)
   end
 
-  test "should get index" do
-    get questions_url
-    assert_response :success
-  end
-
-  test "should get new" do
-    get new_question_url
-    assert_response :success
-  end
-
-  test "should create question" do
+  test "POST /questions should create a question" do
     assert_difference("Question.count") do
-      post questions_url, params: {
+      post(questions_url, params: {
         question: {
-          expected_answer: @question.expected_answer,
-          description: @question.description,
-          user_id: @question.user_id
+          expected_answer: "When did the French revolution take place?",
+          description: "1789",
+          repeat: "0"
         }
-      }
+      })
     end
 
-    assert_redirected_to question_url(Question.last)
+    assert_equal("The question was successfully added.", flash[:notice])
+    assert_redirected_to(questions_url)
   end
 
-  test "should get edit" do
-    get edit_question_url(@question)
-    assert_response :success
+  test "POST /questions with repeat enabled should create a question and redirect back to the form" do
+    assert_difference("Question.count") do
+      post(questions_url, params: {
+        question: {
+          expected_answer: "When did the French revolution take place?",
+          description: "1789",
+          repeat: "1"
+        }
+      })
+    end
+
+    assert_equal("The question was successfully added.", flash[:notice])
+    assert_redirected_to(new_question_url)
   end
 
-  test "should update question" do
-    patch question_url(@question), params: {
-      question: {
-        expected_answer: @question.expected_answer,
-        description: @question.description,
-        user_id: @question.user_id
-      }
-    }
-    assert_redirected_to question_url(@question)
-  end
+  test "DELETE /questions/:id should destroy the question" do
+    question = Question.create!(user: @user, description: "q", expected_answer: "q")
 
-  test "should destroy question" do
     assert_difference("Question.count", -1) do
-      delete question_url(@question)
+      delete(question_url(question))
     end
 
-    assert_redirected_to questions_url
+    assert_redirected_to(questions_url)
   end
 end

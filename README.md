@@ -42,6 +42,12 @@ Run the server:
 bundle exec rails s
 ```
 
+...or run the tests:
+
+```sh
+bundle exec rake
+```
+
 ## Reference/Credits
 
 - SuperMemo2 Algorithm: <https://www.supermemo.com/en/archives1990-2015/english/ol/sm2>

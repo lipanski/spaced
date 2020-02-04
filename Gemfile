@@ -26,12 +26,12 @@ group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "dotenv-rails"
   gem "rubocop" # NOTE: use a common style (but nothing too intrusive)
+  gem "database_consistency", require: false # NOTE: checks for model validation consistency
 end
 
 group :development do
   gem "web-console", ">= 3.3.0"
   gem "listen", ">= 3.0.5", "< 3.2"
-  gem "database_consistency", require: false # NOTE: checks for model validation consistency
   gem "annotate" # NOTE: annotates models with schema information
 end
 

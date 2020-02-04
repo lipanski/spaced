@@ -22,12 +22,12 @@
 
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user: one
-  question: one
-  grade: 1
+paris_first_try:
+  user: mario
+  question: paris
+  grade: 0
 
-two:
-  user: two
-  question: two
-  grade: 1
+paris_second_try:
+  user: mario
+  question: paris
+  grade: 3
