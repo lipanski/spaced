@@ -4,7 +4,11 @@
       .navbar-item
         %h1
           = link_to "SPACED", user_signed_in? ? user_root_path : root_path
-    .navbar-menu
+      .navbar-burger{ data: { target: "navigation" } }
+        %span
+        %span
+        %span
+    .navbar-menu#navigation
       .navbar-start
       .navbar-end
         - if user_signed_in?

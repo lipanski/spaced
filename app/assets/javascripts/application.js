@@ -13,6 +13,22 @@ document.addEventListener("turbolinks:load", function() {
     });
   });
 
+  // Enable the hamburger button on mobile resolutions
+  if ( document.querySelectorAll(".navbar-burger") ) {
+    var navbarBurgers = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
+
+    if (navbarBurgers.length > 0) {
+      navbarBurgers.forEach(function (element) {
+        element.addEventListener("click", function () {
+          var target = document.getElementById(element.dataset.target);
+
+          element.classList.toggle("is-active");
+          target.classList.toggle("is-active");
+        });
+      });
+    }
+  }
+
   (document.querySelectorAll("a[data-answer-for-question]") || []).forEach(function(item) {
     item.addEventListener("click", function(event) {
       event.preventDefault();
