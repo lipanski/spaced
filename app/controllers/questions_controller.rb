@@ -5,6 +5,9 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: [:edit, :update, :destroy]
 
   def index
+    # NOTE: use the browser cache efficiently
+    fresh_when(last_modified: last_updated_at)
+
     query = current_user.questions.order(created_at: :desc)
 
     if params[:q].present?
@@ -60,6 +63,10 @@ class QuestionsController < ApplicationController
   end
 
   private
+
+  def last_updated_at
+    current_user.questions.order(updated_at: :desc).pick(:updated_at)
+  end
 
   def set_question
     @question = current_user.questions.find(params[:id])

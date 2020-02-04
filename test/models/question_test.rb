@@ -20,6 +20,7 @@
 #  index_questions_on_user_id_and_created_at   (user_id,created_at)
 #  index_questions_on_user_id_and_description  (user_id,description) UNIQUE
 #  index_questions_on_user_id_and_due_at       (user_id,due_at)
+#  index_questions_on_user_id_and_updated_at   (user_id,updated_at DESC)
 #
 # Foreign Keys
 #
