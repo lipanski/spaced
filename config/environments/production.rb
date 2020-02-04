@@ -65,7 +65,7 @@ Rails.application.configure do
   }
 
   config.action_mailer.default_url_options = {
-    host: ENV.fetch["SPACED_HOST", "localhost"),
+    host: ENV.fetch("SPACED_HOST", "localhost"),
     port: ENV.fetch("SPACED_PORT", "3000").to_i
   }
 
