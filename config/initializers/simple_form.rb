@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 SimpleForm.setup do |config|
+  # NOTE: tailoring simple_form for Bulma
   config.wrappers(:default, tag: "div", class: "field") do |b|
     b.use :html5
     b.use :placeholder

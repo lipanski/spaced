@@ -31,11 +31,6 @@ class QuestionsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to question_url(Question.last)
   end
 
-  test "should show question" do
-    get question_url(@question)
-    assert_response :success
-  end
-
   test "should get edit" do
     get edit_question_url(@question)
     assert_response :success

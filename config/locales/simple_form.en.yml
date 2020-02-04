@@ -10,6 +10,7 @@ en:
       question:
         description: Question
         repeat: Add another
+    # NOTE: using the simple_form conventions
     hints:
       defaults:
         password: "(6 characters minimum)"

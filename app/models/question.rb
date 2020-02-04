@@ -30,6 +30,7 @@ class Question < ApplicationRecord
   belongs_to :user
   has_many :answers, dependent: :destroy
 
+  validates :user, presence: true
   validates :description, presence: true, uniqueness: { scope: :user_id }, length: { maximum: 250 }
   validates :expected_answer, presence: true, length: { maximum: 250 }
 end

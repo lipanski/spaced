@@ -12,11 +12,11 @@ gem "pg", ">= 0.18", "< 2.0"
 gem "puma", "~> 4.1"
 
 gem "draper"
-gem "hamlit" # HIGHLIGHT: fast haml implementation
-gem "pagy" # HIGHLIGHT: fast pagination
+gem "hamlit" # NOTE: fast haml implementation
+gem "pagy" # NOTE: fast pagination
 gem "sass-rails", ">= 6"
 gem "turbolinks", "~> 5"
-gem "simple_form" # HIGHLIGHT: keeps forms very DRY
+gem "simple_form" # NOTE: keeps forms very DRY
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -24,14 +24,14 @@ gem "simple_form" # HIGHLIGHT: keeps forms very DRY
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "dotenv-rails"
+  gem "rubocop"
 end
 
 group :development do
   gem "web-console", ">= 3.3.0"
   gem "listen", ">= 3.0.5", "< 3.2"
-  gem "database_consistency", require: false
-  gem "annotate"
-  gem "rubocop"
+  gem "database_consistency", require: false # NOTE: checks for model validation consistency
+  gem "annotate" # NOTE: annotates models with schema information
 end
 
 group :test do

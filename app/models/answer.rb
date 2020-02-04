@@ -26,6 +26,8 @@ class Answer < ApplicationRecord
   belongs_to :user
   belongs_to :question
 
+  validates :user, presence: true
+  validates :question, presence: true
   validates :grade,
             presence: true,
             numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }

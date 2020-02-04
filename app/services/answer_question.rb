@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# NOTE: a service object implementing the SuperMemo2 algorithm
 class AnswerQuestion
   def initialize(user, question, grade)
     @user = user

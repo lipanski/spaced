@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class GenerateQuestions
-  # HIGHLIGHT: a memoized class instance variable instead of a constant
+  # NOTE: a memoized class instance variable instead of a constant
   # to avoid unnecessary allocations at boot time
   def self.german_to_english_dictionary
     @german_to_english_dictionary ||= begin
