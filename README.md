@@ -51,4 +51,4 @@ bundle exec rails s
 
 ---
 
-Copyright (C) Florin Lipan, 2020
+Copyright (c) Florin Lipan, 2020
