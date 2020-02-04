@@ -12,11 +12,11 @@ gem "pg", ">= 0.18", "< 2.0"
 gem "puma", "~> 4.1"
 
 gem "draper"
-gem "hamlit"
-gem "pagy"
+gem "hamlit" # HIGHLIGHT: fast haml implementation
+gem "pagy" # HIGHLIGHT: fast pagination
 gem "sass-rails", ">= 6"
 gem "turbolinks", "~> 5"
-gem "simple_form"
+gem "simple_form" # HIGHLIGHT: keeps forms very DRY
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

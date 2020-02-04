@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class GenerateQuestions
+  # HIGHLIGHT: a memoized class instance variable instead of a constant
+  # to avoid unnecessary allocations at boot time
   def self.german_to_english_dictionary
     @german_to_english_dictionary ||= begin
       path = Rails.root.join("data", "german_english.json")
@@ -18,7 +20,7 @@ class GenerateQuestions
   def call
     now = Time.now
 
-    entries = generate_random_questions.each_with_object([]) do |(key, value), acc|
+    entries = random_questions.each_with_object([]) do |(key, value), acc|
       acc << {
         description: key,
         expected_answer: value,
@@ -33,7 +35,7 @@ class GenerateQuestions
 
   private
 
-  def generate_random_questions
+  def random_questions
     self.class.german_to_english_dictionary.sample(@amount)
   end
 end
