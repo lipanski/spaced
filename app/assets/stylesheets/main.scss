@@ -3,10 +3,7 @@ $pagination-current-border-color: #1c1c1c;
 
 @import "../node_modules/bulma/bulma.sass";
 
-.navbar .navbar-brand a {
-  @extend .has-text-dark;
-}
-
+// NOTE: keep the HTML dry and easy to read
 section {
   @extend .section;
 }
@@ -29,6 +26,10 @@ h1 {
 
 h2 {
   @extend .subtitle;
+}
+
+.navbar .navbar-brand a {
+  @extend .has-text-dark;
 }
 
 a[disabled] {
