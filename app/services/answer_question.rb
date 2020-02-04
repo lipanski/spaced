@@ -16,14 +16,16 @@ class AnswerQuestion
         due_at: Time.now + new_interval.days
       ) || (raise ActiveRecord::Rollback)
 
-      Answer.create(
+      Answer.new(
         user: @user,
         question: @question,
         grade: @grade
-      ) || (raise ActiveRecord::Rollback)
+      ).save || (raise ActiveRecord::Rollback)
 
-      true
+      return true
     end
+
+    false
   end
 
   private
