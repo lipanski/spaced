@@ -45,7 +45,7 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @question.destroy
+    @question.destroy!
     redirect_to questions_url, notice: "The question was successfully removed."
   end
 

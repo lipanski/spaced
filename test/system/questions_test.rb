@@ -3,47 +3,41 @@
 require "application_system_test_case"
 
 class QuestionsTest < ApplicationSystemTestCase
+  include Devise::Test::IntegrationHelpers
+
   setup do
-    @question = questions(:one)
+    @user = users(:without_questions)
+    sign_in(@user)
   end
 
-  test "visiting the index" do
+  test "adding a new question" do
     visit questions_url
-    assert_selector "h1", text: "Questions"
-  end
 
-  test "creating a Question" do
-    visit questions_url
-    click_on "New Question"
+    assert_selector "a", text: "Add a new question"
+    click_on "Add a new question"
 
-    fill_in "Answer", with: @question.expected_answer
-    fill_in "Description", with: @question.description
-    fill_in "User", with: @question.user_id
+    fill_in "Question", with: "What is the capital of Romania?"
+    fill_in "Expected answer", with: "Bucharest"
     click_on "Create Question"
 
-    assert_text "Question was successfully created"
-    click_on "Back"
+    assert(Question.where(user: @user, description: "What is the capital of Romania?").exists?)
+    assert_text "The question was successfully added."
+    assert_equal(questions_path, current_path)
   end
 
-  test "updating a Question" do
+  test "adding a new question with the 'Add another' option enabled" do
     visit questions_url
-    click_on "Edit", match: :first
 
-    fill_in "Answer", with: @question.expected_answer
-    fill_in "Description", with: @question.description
-    fill_in "User", with: @question.user_id
-    click_on "Update Question"
+    assert_selector "a", text: "Add a new question"
+    click_on "Add a new question"
 
-    assert_text "Question was successfully updated"
-    click_on "Back"
-  end
+    fill_in "Question", with: "What is the capital of Romania?"
+    fill_in "Expected answer", with: "Bucharest"
+    check "Add another"
+    click_on "Create Question"
 
-  test "destroying a Question" do
-    visit questions_url
-    page.accept_confirm do
-      click_on "Destroy", match: :first
-    end
-
-    assert_text "Question was successfully destroyed"
+    assert(Question.where(user: @user, description: "What is the capital of Romania?").exists?)
+    assert_text "The question was successfully added."
+    assert_equal(new_question_path, current_path)
   end
 end
