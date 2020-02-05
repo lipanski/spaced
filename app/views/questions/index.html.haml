@@ -5,15 +5,15 @@
       Add the questions and answers you'd like to memorize here, then click on
       = link_to "Today", user_root_path
       to get your daily memory exercise
-    = link_to "Add a new question", new_question_path, class: "button is-dark"
-    = link_to "Generate 500 random questions", generate_questions_path, method: :post, class: "button is-dark", data: { confirm: "Are you sure?" }
+      = link_to "Add a new question", new_question_path, class: "button is-dark"
+      = link_to "Generate 500 random questions", generate_questions_path, method: :post, class: "button is-dark", data: { confirm: "Are you sure?" }
     %hr
     = render "shared/notifications"
     - if @questions.any?
       .columns
-        .column.is-4
+        .column.is-6
           = pagy_bulma_nav(@pagy).html_safe
-        .column.is-4.is-offset-4
+        .column.is-4.is-offset-2
           = form_for(questions_path, method: :get) do |f|
             = text_field_tag :q, params[:q], placeholder: "Search"
       - @questions.each do |question|
@@ -31,7 +31,7 @@
               = link_to "Destroy", question, method: :delete, data: { confirm: "Are you sure?" }
       - if @questions.size > 10
         .columns
-          .column.is-4
+          .column.is-6
             = pagy_bulma_nav(@pagy).html_safe
 
 
