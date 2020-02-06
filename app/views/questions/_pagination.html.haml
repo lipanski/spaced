@@ -1,6 +1,8 @@
-.columns
-  .column.has-text-centered
-    = pagy_prev_link(@pagy, html: { class: "button is-pulled-left" })
-    = form_for(questions_path, method: :get, html: { class: "is-inline-flex" }) do |f|
-      = text_field_tag :q, params[:q], placeholder: "Search", class: "is-wide"
-    = pagy_next_link(@pagy, html: { class: "button is-pulled-right" })
+.columns.is-mobile
+  .column.is-3
+    = pagy_prev_link(@pagy, html: { class: "button" })
+  .column.is-6.has-text-centered
+    = form_for(questions_path, method: :get) do |f|
+      = text_field_tag :q, params[:q], placeholder: "Search"
+  .column.is-3.has-text-right
+    = pagy_next_link(@pagy, html: { class: "button" })
