@@ -6,7 +6,7 @@ class QuestionsController < ApplicationController
 
   def index
     # NOTE: use the browser cache efficiently
-    fresh_when(last_modified: last_updated_at)
+    return unless stale?(last_modified: Question.last_modified_at_for(current_user.id))
 
     query = current_user.questions.order(created_at: :desc)
 

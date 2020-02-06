@@ -28,6 +28,7 @@
 #
 
 class Question < ApplicationRecord
+  include CacheablePerUser
   include PgSearch::Model
 
   # NOTE: simple and decently fast search
