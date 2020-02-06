@@ -8,7 +8,10 @@ module CacheablePerUser
 
   included do
     after_commit do
-      Rails.cache.write(self.class.last_modified_at_cache_key(user_id), Time.zone.now.to_i)
+      Rails.cache.write(
+        self.class.last_modified_at_cache_key(user_id),
+        Time.zone.now.to_i
+      )
     end
   end
 
