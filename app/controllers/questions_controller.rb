@@ -19,14 +19,13 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = NewQuestionDecorator.new(Question.new)
+    @question = NewQuestion.new
   end
 
   def edit; end
 
   def create
-    raw_question = Question.new(question_params.merge!(user: current_user))
-    @question = NewQuestionDecorator.new(raw_question, repeat: params[:question][:repeat])
+    @question = NewQuestion.new(question_params.merge!(user: current_user))
 
     if @question.save
       redirect_url = @question.repeat ? new_question_url : questions_url
@@ -73,6 +72,6 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:description, :expected_answer)
+    params.require(:question).permit(:description, :expected_answer, :repeat)
   end
 end
