@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Caches the timestamp of the last change for every user.
 # This can be used to set the Last-Modified HTTP header
 # without having to make an additional database query.
@@ -12,9 +14,10 @@ module CacheablePerUser
 
   class_methods do
     def last_modified_at_for(user_id)
-      if timestamp = Rails.cache.read(last_modified_at_cache_key(user_id))
-        Time.zone.at(timestamp.to_i)
-      end
+      timestamp = Rails.cache.read(last_modified_at_cache_key(user_id))
+      return unless timestamp
+
+      Time.zone.at(timestamp.to_i)
     end
 
     def last_modified_at_cache_key(user_id)
