@@ -68,10 +68,10 @@ class QuestionsController < ApplicationController
   end
 
   def set_question
-    @question = current_user.questions.find(params[:id])
+    @question = current_user.questions.includes(:tags).find(params[:id])
   end
 
   def question_params
-    params.require(:question).permit(:description, :expected_answer, :repeat)
+    params.require(:question).permit(:description, :expected_answer, :repeat, :tag_names)
   end
 end

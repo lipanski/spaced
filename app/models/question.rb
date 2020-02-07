@@ -38,8 +38,24 @@ class Question < ApplicationRecord
 
   belongs_to :user
   has_many :answers, dependent: :destroy
+  has_many :question_tags, dependent: :destroy
+  has_many :tags, through: :question_tags
 
   validates :user, presence: true
   validates :description, presence: true, uniqueness: { scope: :user_id }, length: { maximum: 250 }
   validates :expected_answer, presence: true, length: { maximum: 250 }
+
+  # A virtual field to allow updating the tags association
+  # from a simple comma/space-separated text field.
+  def tag_names=(value)
+    tag_names = String(value).split(/\s|,|;/).map(&:strip).select(&:present?)
+
+    self.tags = tag_names.map do |tag_name|
+      tags.find { |tag| tag.name == tag_name } || Tag.where(user_id: user_id, name: tag_name).first_or_create
+    end
+  end
+
+  def tag_names
+    tags.map(&:name).join(" ")
+  end
 end
