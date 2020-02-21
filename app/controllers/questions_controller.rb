@@ -25,7 +25,7 @@ class QuestionsController < ApplicationController
   def edit; end
 
   def create
-    @question = NewQuestion.new(question_params.merge!(user: current_user))
+    @question = NewQuestion.new({ user: current_user }.merge!(question_params))
 
     if @question.save
       redirect_url = @question.repeat ? new_question_url : questions_url
