@@ -40,3 +40,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem 'api', path: 'engines/api'

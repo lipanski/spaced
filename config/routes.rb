@@ -13,4 +13,6 @@ Rails.application.routes.draw do
 
   # Post-login route
   get "today", to: "questions#today", as: :user_root
+
+  mount Api::Engine => "/api"
 end
