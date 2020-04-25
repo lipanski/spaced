@@ -1,18 +1,20 @@
 default: &default
-  adapter: postgresql
   encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  adapter: <%= ENV.fetch("SPACED_DB_ADAPTER", "postgresql") %>
+  host: <%= ENV.fetch("SPACED_DB_HOST", "127.0.0.1") %>
+  username: <%= ENV["SPACED_DB_USER"] %>
+  password: <%= ENV["SPACED_DB_PASS"] %>
+  database: <%= ENV["SPACED_DB_NAME"] %>
+  pool: <%= ENV.fetch("SPACED_THREADS", "5") %>
 
 development:
   <<: *default
-  database: spaced_development
+  database: <%= ENV.fetch("SPACED_DB_NAME", "spaced_development") %>
 
 test:
   <<: *default
-  database: spaced_test
+  database: <%= ENV.fetch("SPACED_DB_NAME", "spaced_test") %>
 
 production:
   <<: *default
-  database: spaced_production
-  username: spaced
-  password: <%= ENV['SPACED_DATABASE_PASSWORD'] %>
+
