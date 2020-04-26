@@ -2,7 +2,7 @@
   .container
     .columns
       .column.is-8
-        - if @question
+        - if @question.present?
           %h1 Let's learn something new today
           %h2 Answer the following questions, then rate how well you performed
           = render "shared/notifications"
