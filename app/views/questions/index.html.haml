@@ -16,9 +16,10 @@
         %article.message
           .message-body.is-dark
             .is-pulled-left
-              - question.tag_names.each do |tag_name|
-                %span.tag.is-dark
-                  = tag_name
+              .tags
+                - question.tag_names.each do |tag_name|
+                  %span.tag.is-dark
+                    = tag_name
               %p.is-size-4
                 = question.description
             %p.is-pulled-right.is-size-7

@@ -9,16 +9,21 @@
           .card
             .card-content
               .content
+                - if @question.tag_names
+                  .tags
+                    - @question.tag_names.each do |tag_name|
+                      %span.tag.is-dark
+                        = tag_name
                 %p.title
                   = @question.description
                 = link_to "Show answer", "#", data: { answer_for_question: "question_#{@question.id}" }
-                %p.is-hidden[@question, "answer"]
+                %p.is-hidden{ id: "answer_question_#{@question.id}" }
                   = @question.expected_answer
-            %footer.card-footer[@question, "disabled_links"]
+            %footer.card-footer{ id: "disabled_links_question_#{@question.id}" }
               - (0..5).each do |grade|
                 %a.card-footer-item{ disabled: true }
                   = grade
-            %footer.card-footer.is-hidden[@question, "enabled_links"]
+            %footer.card-footer.is-hidden{ id: "enabled_links_question_#{@question.id}" }
               - (0..5).each do |grade|
                 = link_to grade, question_answers_path(question_id: @question, grade: grade), method: :post, class: "card-footer-item"
           %br
