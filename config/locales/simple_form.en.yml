@@ -9,7 +9,7 @@ en:
     labels:
       question:
         description: Question
-        tag_names: Tags
+        csv_tag_names: Tags
         repeat: Add another
     # NOTE: using the simple_form conventions
     hints:
@@ -18,4 +18,4 @@ en:
       question:
         description: "(250 characters maximum)"
         expected_answer: "(250 characters maximum)"
-        tag_names: "(separated by spaces or commas)"
+        csv_tag_names: "(separated by spaces or commas)"

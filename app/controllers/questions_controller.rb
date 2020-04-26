@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
     # NOTE: use the browser cache efficiently
     return unless stale?(last_modified: Question.last_modified_at_for(current_user.id))
 
-    query = current_user.questions.order(created_at: :desc)
+    query = current_user.questions.includes(:tags).order(created_at: :desc)
 
     if params[:q].present?
       query = query.reorder("").search(params[:q])
@@ -72,6 +72,6 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:description, :expected_answer, :repeat, :tag_names)
+    params.require(:question).permit(:description, :expected_answer, :repeat, :csv_tag_names)
   end
 end

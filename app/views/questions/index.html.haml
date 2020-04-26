@@ -15,13 +15,18 @@
       - @questions.each do |question|
         %article.message
           .message-body.is-dark
-            %p.has-text-weight-bold.is-pulled-left
-              = question.description
+            .is-pulled-left
+              - question.tag_names.each do |tag_name|
+                %span.tag.is-dark
+                  = tag_name
+              %p.is-size-4
+                = question.description
             %p.is-pulled-right.is-size-7
               = question.created_at
             .is-clearfix
             %p
               = question.expected_answer
+            %br
             %p.is-size-7
               = link_to "Edit", edit_question_path(question)
               = link_to "Destroy", question, method: :delete, data: { confirm: "Are you sure?" }

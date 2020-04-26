@@ -2,7 +2,7 @@
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
   = f.input :description, autofocus: true
   = f.input :expected_answer, as: :text
-  = f.input :tag_names
+  = f.input :csv_tag_names
   = f.input :repeat, as: :boolean if f.object.respond_to?(:repeat)
   .field.is-grouped
     = f.button :submit, class: "control button is-dark"

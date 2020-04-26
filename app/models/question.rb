@@ -47,7 +47,7 @@ class Question < ApplicationRecord
 
   # A virtual field to allow updating the tags association
   # from a simple comma/space-separated text field.
-  def tag_names=(value)
+  def csv_tag_names=(value)
     tag_names = String(value).split(/\s|,|;/).map(&:strip).select(&:present?)
 
     self.tags = tag_names.map do |tag_name|
@@ -55,7 +55,7 @@ class Question < ApplicationRecord
     end
   end
 
-  def tag_names
+  def csv_tag_names
     tags.map(&:name).join(" ")
   end
 end

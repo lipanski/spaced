@@ -7,4 +7,8 @@ class QuestionDecorator < Draper::Decorator
   def created_at
     I18n.l(object.created_at, format: :default)
   end
+
+  def tag_names
+    object.tags.map(&:name)
+  end
 end

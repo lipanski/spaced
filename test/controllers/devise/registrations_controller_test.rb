@@ -27,7 +27,7 @@ module Devise
           user: user,
           description: "question #{i}",
           expected_answer: "answer #{i}",
-          tag_names: "a b c d"
+          csv_tag_names: "a b c d"
         )
       end
 
@@ -46,7 +46,7 @@ module Devise
           user: user,
           description: "question #{i}",
           expected_answer: "answer #{i}",
-          tag_names: "a b c d"
+          csv_tag_names: "a b c d"
         )
       end
 
@@ -65,7 +65,7 @@ module Devise
           user: user,
           description: "question #{i}",
           expected_answer: "answer #{i}",
-          tag_names: "a b c d"
+          csv_tag_names: "a b c d"
         )
 
         Answer.create!(user: user, question: question, grade: 3)

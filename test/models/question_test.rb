@@ -7,12 +7,12 @@ class QuestionTest < ActiveSupport::TestCase
     @user = users(:without_questions)
   end
 
-  test "setting new tags with tag_names" do
+  test "setting new tags with csv_tag_names" do
     question = Question.new(
       user: @user,
       description: "What is the capital of France?",
       expected_answer: "Paris",
-      tag_names: "capitals history"
+      csv_tag_names: "capitals history"
     )
 
     assert_difference("Question.count", 1) do
@@ -26,7 +26,7 @@ class QuestionTest < ActiveSupport::TestCase
     assert_equal(["capitals", "history"], question.tags.map(&:name))
   end
 
-  test "setting existing tags with tag_names" do
+  test "setting existing tags with csv_tag_names" do
     Tag.create!(user: @user, name: "capitals")
     Tag.create!(user: @user, name: "history")
 
@@ -34,7 +34,7 @@ class QuestionTest < ActiveSupport::TestCase
       user: @user,
       description: "What is the capital of France?",
       expected_answer: "Paris",
-      tag_names: "capitals history"
+      csv_tag_names: "capitals history"
     )
 
     assert_difference("Question.count", 1) do
