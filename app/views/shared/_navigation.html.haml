@@ -12,6 +12,8 @@
       .navbar-start
       .navbar-end
         - if user_signed_in?
+          .navbar-item
+            = link_to "+", new_question_path, class: "button is-dark is-outlined"
           = link_to "Today", user_root_path, class: "navbar-item"
           = link_to "My questions", questions_path, class: "navbar-item"
           = link_to "My profile", edit_user_registration_path, class: "navbar-item"

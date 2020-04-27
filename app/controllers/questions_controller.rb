@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
     # NOTE: use the browser cache efficiently
     return unless stale?(last_modified: Question.last_modified_at_for(current_user.id))
 
-    query = current_user.questions.order(created_at: :desc)
+    query = current_user.questions.includes(:tags).order(created_at: :desc)
 
     if params[:q].present?
       query = query.reorder("").search(params[:q])
