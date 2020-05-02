@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :answers, only: [:create]
   end
 
+  resources :tags, except: [:new, :create, :show]
+
   devise_for :users
 
   # Post-login route

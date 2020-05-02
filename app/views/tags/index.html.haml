@@ -1,0 +1,17 @@
+%section
+  .container
+    %h1 My tags
+    %h2 Visualize, update or remove tags
+    = render "shared/notifications"
+    .content
+      .columns
+        - @tags.each do |tag|
+          .column.is-one-third
+            .card
+              .card-content
+                %p.title
+                  = tag.name
+              %footer.card-footer
+                = link_to "Questions", questions_path(q: "tag:#{tag.name}")
+                -# = link_to "Edit", edit_tag_path(tag)
+                -# = link_to "Remove", tag, method: :delete, data: { confirm: "Are you sure?" }

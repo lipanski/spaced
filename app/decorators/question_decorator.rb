@@ -9,6 +9,6 @@ class QuestionDecorator < Draper::Decorator
   end
 
   def tag_names
-    object.tags.map(&:name)
+    object.tags.sort_by(&:name).map(&:name)
   end
 end

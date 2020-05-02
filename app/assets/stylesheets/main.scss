@@ -38,3 +38,7 @@ a[disabled] {
   text-decoration: none;
   opacity: 0.7;
 }
+
+.card .card-footer a {
+  @extend .card-footer-item;
+}
