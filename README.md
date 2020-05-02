@@ -6,7 +6,7 @@ A web app to help you improve your memory by using the spaced repetition method.
 
 Requirements:
 
-- Ruby 2.5.3
+- Ruby
 - Postgres
 - Yarn
 - (Optional) SMTP credentials for sending out emails
