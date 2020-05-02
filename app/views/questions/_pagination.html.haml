@@ -1,8 +1,7 @@
-.columns.is-mobile
-  .column.is-3
-    = pagy_prev_link(@pagy, html: { class: "button" })
-  .column.is-6.has-text-centered
+.columns
+  .column
     = form_for(questions_path, method: :get) do |f|
       = text_field_tag :q, params[:q], placeholder: "Search"
-  .column.is-3.has-text-right
+  .column.has-text-right-tablet
+    = pagy_prev_link(@pagy, html: { class: "button" })
     = pagy_next_link(@pagy, html: { class: "button" })
