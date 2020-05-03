@@ -44,6 +44,7 @@ class Question < ApplicationRecord
   validates :user, presence: true
   validates :description, presence: true, uniqueness: { scope: :user_id }, length: { maximum: 250 }
   validates :expected_answer, presence: true, length: { maximum: 250 }
+  validate :validate_csv_tag_names
 
   # A virtual field to allow updating the tags association
   # from a simple comma/space-separated text field.
@@ -57,5 +58,14 @@ class Question < ApplicationRecord
 
   def csv_tag_names
     tags.map(&:name).join(" ")
+  end
+
+  private
+
+  def validate_csv_tag_names
+    return if tags.all?(&:valid?)
+
+    message = tags.map { |tag| tag.errors.full_messages }.flatten.uniq.map { |error| "#{error}. " }.join
+    errors.add(:csv_tag_names, message)
   end
 end

@@ -14,6 +14,8 @@
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :inet
 #  locked_at              :datetime
+#  max_questions          :integer          default(100)
+#  max_tags               :integer          default(50)
 #  name                   :string(250)      not null
 #  questions_per_day      :integer          default(10), not null
 #  remember_created_at    :datetime

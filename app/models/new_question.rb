@@ -32,9 +32,19 @@ class NewQuestion < Question
     delegate :model_name, to: :Question
   end
 
+  validate :validate_max_questions_not_reached
+
   attr_reader :repeat
 
   def repeat=(value)
     @repeat = ActiveModel::Type::Boolean.new.cast(value)
+  end
+
+  private
+
+  def validate_max_questions_not_reached
+    return unless user.max_questions.present? && user.questions.count >= user.max_questions
+
+    errors.add(:base, "You have reached the maximum number of questions allowed for your account")
   end
 end

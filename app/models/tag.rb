@@ -33,7 +33,17 @@ class Tag < ApplicationRecord
     length: { maximum: 50 },
     format: { with: /\A[-\w\s]+\Z/, message: "only allows letters, numbers, spaces and dashes" }
 
+  validate :validate_max_tags_not_reached
+
   def name=(value)
     super(value.strip)
+  end
+
+  private
+
+  def validate_max_tags_not_reached
+    return unless user.max_tags.present? && user.tags.count >= user.max_tags
+
+    errors.add(:base, "You have reached the maximum number of tags allowed for your account")
   end
 end
