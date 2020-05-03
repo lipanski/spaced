@@ -3,6 +3,9 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
+#  confirmation_sent_at   :datetime
+#  confirmation_token     :string
+#  confirmed_at           :datetime
 #  current_sign_in_at     :datetime
 #  current_sign_in_ip     :inet
 #  email                  :string(250)      not null
@@ -17,6 +20,7 @@
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  sign_in_count          :integer          default(0), not null
+#  unconfirmed_email      :string
 #  unlock_token           :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
@@ -33,11 +37,15 @@
 mario:
   name: Mario
   email: mario@example.com
+  confirmed_at: 2020-03-05T12:00:00
 
 luigi:
   name: Luigi
   email: luigi@example.com
+  confirmed_at: 2020-03-05T13:00:00
 
 without_questions:
   name: No Questions
   email: no-questions@example.com
+  confirmed_at: 2020-03-05T14:00:00
+
