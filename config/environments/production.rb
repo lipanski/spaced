@@ -31,9 +31,6 @@ Rails.application.configure do
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
-  # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  # config.action_controller.asset_host = ENV["SPACED_HOST"]
-
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
@@ -59,28 +56,6 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "spaced_production"
 
   config.action_mailer.perform_caching = false
-
-  config.action_mailer.default_options = {
-    from: "no-reply@example.com",
-    reply_to: "no-reply@example.com"
-  }
-
-  config.action_mailer.default_url_options = {
-    host: ENV.fetch("SPACED_HOST", "localhost"),
-    port: ENV.fetch("SPACED_PORT", "3000").to_i
-  }
-
-  config.action_mailer.delivery_method = :smtp
-
-  config.action_mailer.smtp_settings = {
-    address: ENV["SPACED_SMTP_HOST"],
-    port: ENV.fetch("SPACED_SMTP_PORT", "587").to_i,
-    domain: ENV.fetch("SPACED_SMTP_DOMAIN", nil),
-    user_name: ENV["SPACED_SMTP_USERNAME"],
-    password: ENV["SPACED_SMTP_PASSWORD"],
-    authentication: "plain",
-    enable_starttls_auto: true
-  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
