@@ -26,4 +26,14 @@ class Tag < ApplicationRecord
   belongs_to :user
   has_many :question_tags, dependent: :destroy
   has_many :questions, through: :question_tags
+
+  validates :name,
+    presence: true,
+    uniqueness: { scope: :user_id },
+    length: { maximum: 50 },
+    format: { with: /\A[-\w\s]+\Z/, message: "only allows letters, numbers, spaces and dashes" }
+
+  def name=(value)
+    super(value.strip)
+  end
 end

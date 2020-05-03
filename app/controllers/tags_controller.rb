@@ -13,7 +13,13 @@ class TagsController < ApplicationController
 
   def edit; end
 
-  def update; end
+  def update
+    if @tag.update(tag_params)
+      redirect_to tags_url, notice: "The tag was successfully updated."
+    else
+      render :edit
+    end
+  end
 
   def destroy
     @tag.destroy!
@@ -24,5 +30,9 @@ class TagsController < ApplicationController
 
   def set_tag
     @tag = current_user.tags.find(params[:id])
+  end
+
+  def tag_params
+    params.require(:tag).permit(:name)
   end
 end

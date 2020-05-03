@@ -32,8 +32,8 @@
 
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :trackable, :lockable
+    :recoverable, :rememberable, :validatable,
+    :trackable, :lockable
 
   has_many :questions, dependent: :destroy
   has_many :answers

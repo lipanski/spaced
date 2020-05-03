@@ -1,0 +1,9 @@
+%section
+  .container
+    %h1 Make changes to your tag
+    = simple_form_for(@tag) do |f|
+      = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+      = f.input :name, autofocus: true
+      .field.is-grouped
+        = f.button :submit, class: "control button is-dark"
+        = link_to "Cancel", :back, class: "control button is-light"
