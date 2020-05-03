@@ -21,6 +21,8 @@
 #
 
 class Tag < ApplicationRecord
+  include CacheablePerUser
+
   belongs_to :user
   has_many :question_tags, dependent: :destroy
   has_many :questions, through: :question_tags
