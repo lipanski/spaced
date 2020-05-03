@@ -23,7 +23,7 @@ class QuestionTest < ActiveSupport::TestCase
 
     question.reload
     assert_equal(2, question.tags.count)
-    assert_equal(["capitals", "history"], question.tags.map(&:name))
+    assert_equal(["capitals", "history"], question.tags.map(&:name).sort)
   end
 
   test "setting existing tags with csv_tag_names" do
@@ -45,6 +45,6 @@ class QuestionTest < ActiveSupport::TestCase
 
     question.reload
     assert_equal(2, question.tags.count)
-    assert_equal(["capitals", "history"], question.tags.map(&:name))
+    assert_equal(["capitals", "history"], question.tags.map(&:name).sort)
   end
 end

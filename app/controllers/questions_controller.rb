@@ -11,17 +11,7 @@ class QuestionsController < ApplicationController
     query = current_user.questions.includes(:tags).order(created_at: :desc)
 
     if params[:q].present?
-      tag_words, search_words = params[:q].split.partition { |word| word.start_with?("tag:") }
-
-      if tag_words.present?
-        tag_words.map! { |part| part.delete_prefix("tag:") }
-        tag_ids = current_user.tags.where(name: tag_words).pluck(:id)
-        query = query.where(tags: { id: tag_ids })
-      end
-
-      if search_words.present?
-        query = query.reorder("").search(search_words.join(" "))
-      end
+      query = SearchQuestions.new(params[:q], query).call
     end
 
     @pagy, @questions = pagy_countless(query, items: 50)
