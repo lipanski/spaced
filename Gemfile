@@ -33,6 +33,7 @@ group :development do
   gem "listen", ">= 3.0.5", "< 3.2"
   gem "annotate" # NOTE: annotates models with schema information
   gem "database_consistency", require: false # NOTE: checks for model validation consistency
+  gem "foreman"
 end
 
 group :test do
