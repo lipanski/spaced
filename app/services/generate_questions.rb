@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class GenerateQuestions
+  TAG = "random"
+
   # NOTE: a memoized class instance variable instead of a constant
   # to avoid unnecessary allocations at boot time
   def self.german_to_english_dictionary
@@ -18,19 +20,34 @@ class GenerateQuestions
   end
 
   def call
-    now = Time.now
+    Question.transaction do
+      now = Time.now
 
-    entries = random_questions.each_with_object([]) do |(key, value), acc|
-      acc << {
-        description: key,
-        expected_answer: value,
-        user_id: @user.id,
-        created_at: now,
-        updated_at: now
-      }
+      question_entries = random_questions.each_with_object([]) do |(key, value), acc|
+        acc << {
+          description: key,
+          expected_answer: value,
+          user_id: @user.id,
+          created_at: now,
+          updated_at: now
+        }
+      end
+
+      # NOTE: Speed up the bulk insert with insert_all. Use `returning` to collect ids (only works in Postgres).
+      insert_results = Question.insert_all(question_entries, returning: [:id])
+
+      tag = Tag.where(user_id: @user.id, name: TAG).first_or_create
+      question_tag_entries = insert_results.map do |result|
+        {
+          question_id: result["id"],
+          tag_id: tag.id,
+          created_at: now,
+          updated_at: now
+        }
+      end
+
+      QuestionTag.insert_all(question_tag_entries)
     end
-
-    Question.insert_all(entries)
   end
 
   private
