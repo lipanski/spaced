@@ -58,7 +58,12 @@ class QuestionsController < ApplicationController
   end
 
   def generate
-    GenerateQuestions.new(current_user).call
+    generated = GenerateQuestions.new(current_user).call
+
+    unless generated
+      flash[:alert] = "Couldn't generate questions. Maybe you've exceeded your quota."
+    end
+
     redirect_to questions_url
   end
 

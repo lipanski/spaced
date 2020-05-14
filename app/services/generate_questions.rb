@@ -21,6 +21,8 @@ class GenerateQuestions
 
   def call
     Question.transaction do
+      return false if @user.max_questions.present? && @user.questions.count + @amount > @user.max_questions
+
       now = Time.now
 
       question_entries = random_questions.each_with_object([]) do |(key, value), acc|
@@ -47,7 +49,11 @@ class GenerateQuestions
       end
 
       QuestionTag.insert_all(question_tag_entries)
+
+      return true
     end
+
+    false
   end
 
   private
