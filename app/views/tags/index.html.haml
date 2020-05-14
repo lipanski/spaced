@@ -14,4 +14,5 @@
               %footer.card-footer
                 = link_to "Questions", questions_path(q: "tag:#{tag.name}")
                 = link_to "Edit", edit_tag_path(tag)
-                = link_to "Remove", tag, method: :delete, data: { confirm: "This will remove the tag but not the questions. Are you sure?" }
+                = link_to "Remove tag", tag, method: :delete, data: { confirm: "This will remove the tag but not the questions. Are you sure?" }
+                = link_to "Remove questions", tag_path(tag, include_questions: 1), method: :delete, data: { confirm: "This will remove all the tagged questions. Are you sure?" }

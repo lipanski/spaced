@@ -22,8 +22,21 @@ class TagsController < ApplicationController
   end
 
   def destroy
-    @tag.destroy!
-    redirect_to tags_url, notice: "The tag was successfully removed."
+    include_questions = params[:include_questions].present?
+
+    Tag.transaction do
+      Question.where(id: @tag.questions).destroy_all if include_questions
+      @tag.destroy!
+    end
+
+    message =
+      if include_questions
+        "The questions and tag were successfully removed."
+      else
+        "The tag was successfully removed."
+      end
+
+    redirect_to tags_url, notice: message
   end
 
   private
