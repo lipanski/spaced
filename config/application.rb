@@ -36,8 +36,8 @@ module Spaced
     # the framework and any gems in your application.
 
     config.action_mailer.default_options = {
-      from: ENV.fetch("SPACED_REPLY_TO_EMAIL") { "noreply@example.com" },
-      reply_to: ENV.fetch("SPACED_REPLY_TO_EMAIL") { "noreply@example.com" }
+      from: ENV.fetch("SPACED_REPLY_TO_EMAIL", "noreply@example.com"),
+      reply_to: ENV.fetch("SPACED_REPLY_TO_EMAIL", "noreply@example.com")
     }
 
     config.action_mailer.delivery_method = :smtp
