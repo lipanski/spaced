@@ -31,7 +31,7 @@ class TagsController < ApplicationController
 
     message =
       if include_questions
-        "The questions and tag were successfully removed."
+        "The questions were successfully removed."
       else
         "The tag was successfully removed."
       end

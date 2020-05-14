@@ -33,4 +33,18 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to(tags_url)
   end
+
+  test "DELETE /tags/:id/?include_questions=1 removes the tag and the tagged questions" do
+    tag = Tag.create!(user: @user, name: "aaa")
+    Question.create!(user: @user, description: "d1", expected_answer: "a", csv_tag_names: "aaa")
+    Question.create!(user: @user, description: "d2", expected_answer: "a", csv_tag_names: "aaa")
+
+    assert_difference("Question.count", -2) do
+      assert_difference("Tag.count", -1) do
+        delete(tag_url(tag, include_questions: 1))
+      end
+    end
+
+    assert_redirected_to(tags_url)
+  end
 end
