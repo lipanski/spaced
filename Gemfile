@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby "2.7.1"
 
-gem "rails", "~> 6.0.2"
+gem "rails", "~> 6.0.3"
 
 gem "bootsnap", ">= 1.4.2", require: false
 gem "devise"
