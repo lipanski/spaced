@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Mark existing migrations as safe
 StrongMigrations.start_after = 20200628173805
 
