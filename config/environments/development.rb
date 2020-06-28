@@ -47,6 +47,9 @@ Rails.application.configure do
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
 
+  # NOTE: speed up migrations - see https://github.com/ankane/strong_migrations#faster-migrations
+  config.active_record.dump_schema_after_migration = `git status db/migrate/ --porcelain`.present?
+
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.

@@ -2,5 +2,5 @@
 
 set -e
 
-SPACED_DB_STATEMENT_TIMEOUT=600s bundle exec rake db:migrate
+bundle exec rake db:migrate
 bundle exec puma -C config/puma.rb

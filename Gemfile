@@ -20,6 +20,8 @@ gem "sass-rails", ">= 6"
 gem "turbolinks", "~> 5"
 gem "simple_form" # NOTE: keeps forms very DRY
 
+gem "strong_migrations" # NOTE: prevent unsafe migrations
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

@@ -10,7 +10,8 @@ default: &default
   connect_timeout: 2 # seconds
   checkout_timeout: 10 # seconds
   variables:
-    statement_timeout: <%= ENV.fetch("SPACED_DB_STATEMENT_TIMEOUT", "1s") %>
+    statement_timeout: "2s"
+    lock_timeout: "10s"
 
 development:
   <<: *default

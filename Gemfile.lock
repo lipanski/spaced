@@ -219,6 +219,8 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    strong_migrations (0.6.8)
+      activerecord (>= 5)
     temple (0.8.2)
     thor (1.0.1)
     thread_safe (0.3.6)
@@ -272,6 +274,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   simple_form
+  strong_migrations
   turbolinks (~> 5)
   web-console (>= 3.3.0)
   webdrivers
