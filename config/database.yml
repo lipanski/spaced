@@ -6,6 +6,11 @@ default: &default
   password: <%= ENV["SPACED_DB_PASS"] %>
   database: <%= ENV["SPACED_DB_NAME"] %>
   pool: <%= ENV.fetch("SPACED_THREADS", "5") %>
+  # NOTE: set proper timeouts
+  connect_timeout: 2 # seconds
+  checkout_timeout: 10 # seconds
+  variables:
+    statement_timeout: <%= ENV.fetch("SPACED_DB_STATEMENT_TIMEOUT", "1s") %>
 
 development:
   <<: *default

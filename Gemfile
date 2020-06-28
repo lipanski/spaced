@@ -11,6 +11,7 @@ gem "devise"
 gem "pg", ">= 0.18", "< 2.0"
 gem "pg_search"
 gem "puma", "~> 4.3"
+gem "rack-timeout" # NOTE: timeout requests (puma doesn't)
 
 gem "draper"
 gem "hamlit" # NOTE: fast haml implementation
