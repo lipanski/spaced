@@ -21,10 +21,10 @@
             %footer.card-footer{ id: "disabled_links_question_#{@question.id}" }
               - (0..5).each do |grade|
                 %a.card-footer-item{ disabled: true }
-                  = image_tag("icons/grade-#{grade}.svg", alt: grade)
+                  = image_tag("icons/grade-#{grade}-outline.svg", alt: grade)
             %footer.card-footer.is-hidden{ id: "enabled_links_question_#{@question.id}" }
               - (0..5).each do |grade|
-                = link_to image_tag("icons/grade-#{grade}-outline.svg", alt: grade), question_answers_path(question_id: @question, grade: grade), method: :post, class: "card-footer-item"
+                = link_to image_tag("icons/grade-#{grade}.svg", alt: grade), question_answers_path(question_id: @question, grade: grade), method: :post, class: "card-footer-item"
           %br
           .content.is-small
             = link_to "How does the rating work?", legend_questions_path
