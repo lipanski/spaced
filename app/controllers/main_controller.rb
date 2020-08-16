@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class MainController < ApplicationController
-  before_action only: [:home, :about] { flash.discard }
-
   def home; end
 
   def about; end
