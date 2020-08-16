@@ -135,6 +135,8 @@ Style/MethodCallWithArgsParentheses:
   - xit
 Style/MutableConstant:
   Enabled: false
+Style/NumericLiterals:
+  Enabled: false
 Style/NumericPredicate:
   Enabled: false
 Style/PercentLiteralDelimiters:
