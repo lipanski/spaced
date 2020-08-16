@@ -6,17 +6,19 @@ rvm:
   - 2.7.1
 cache: bundler
 env:
-  - RAILS_ENV=test
-  - RACK_TIMEOUT_SERVICE_TIMEOUT=15
-  - SPACED_THREADS=5
-  - SPACED_PUBLIC_URL=http://localhost:3000
-  - SPACED_SERVER_PORT=3000
-  - SPACED_DB_USER=postgres
-  - SPACED_DB_NAME=spaced_test
-  - SECRET_KEY_BASE=secret
-  - SPACED_REPLY_TO_EMAIL=noreply@example.com
+  global:
+    RAILS_ENV: test
+    RACK_TIMEOUT_SERVICE_TIMEOUT: 15
+    SPACED_THREADS: 5
+    SPACED_PUBLIC_URL: http://localhost:3000
+    SPACED_SERVER_PORT: 3000
+    SPACED_DB_USER: postgres
+    SPACED_DB_NAME: spaced_test
+    SECRET_KEY_BASE: secret
+    SPACED_REPLY_TO_EMAIL: noreply@example.com
 before_script:
   - psql -U postgres -c 'create database spaced_test;'
 script:
   - bundle exec rake test
   - HEADLESS=1 bundle exec rake test:system
+
