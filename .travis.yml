@@ -19,6 +19,5 @@ env:
 before_script:
   - bin/setup
 script:
-  - bundle exec rake test
-  - HEADLESS=1 bundle exec rake test:system
+  - bundle exec rake test:all
 
