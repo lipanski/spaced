@@ -4,17 +4,19 @@
       .column.is-offset-2.is-8
         = render "shared/notifications"
         %h1 My tags
-        %h2 Visualize, edit or remove tags
-        - unless @tags.any?
-          %p You don't have any tags yet. Tags are created when you add them to your questions.
+        - if @tags.any?
+          %h2 Visualize, edit or remove tags
+        - else
+          %h2 You don't have any tags yet. Tags are created when you #{link_to("add new questions", new_question_path)}.
         .content
           - @tags.each do |tag|
-            .card
-              .card-content
-                %p.title
-                  = tag.name
-              %footer.card-footer
-                = link_to "Questions", questions_path(q: "tag:#{tag.name}")
-                = link_to "Edit", edit_tag_path(tag)
-                = link_to "Remove tag", tag, method: :delete, data: { confirm: "This will remove the tag but not the questions. Are you sure?" }
-                = link_to "Remove questions", tag_path(tag, include_questions: 1), method: :delete, data: { confirm: "This will remove all the tagged questions. Are you sure?" }
+            %p
+              .card
+                .card-content
+                  %p.title
+                    = tag.name
+                %footer.card-footer
+                  = link_to "Questions", questions_path(q: "tag:#{tag.name}")
+                  = link_to "Edit", edit_tag_path(tag)
+                  = link_to "Remove tag", tag, method: :delete, data: { confirm: "This will remove the tag but not the questions. Are you sure?" }
+                  = link_to "Remove questions", tag_path(tag, include_questions: 1), method: :delete, data: { confirm: "This will remove all the tagged questions. Are you sure?" }
