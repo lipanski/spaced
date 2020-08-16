@@ -1,0 +1,75 @@
+%section
+  .container
+    .columns
+      .column.is-offset-2.is-8
+        %h1 How does the rating work?
+        %h2 You rate your answers by using one of the following weather symbols
+
+        %article.message
+          .message-body
+            .media
+              .media-left
+                %figure.image.is-32x32
+                  = image_tag("icons/grade-0.svg", class: "grade-icon")
+              .media-content
+                .content
+                  %p.has-text-weight-bold Complete blackout
+                  %p You couldn't remember the answer at all. Once you uncovered the answer, you weren't even close.
+
+        %article.message
+          .message-body
+            .media
+              .media-left
+                %figure.image.is-32x32
+                  = image_tag("icons/grade-1.svg", class: "grade-icon")
+              .media-content
+                .content
+                  %p.has-text-weight-bold Incorrect answer, the correct one was remembered
+                  %p Once you uncovered the answer, you remembered you had some knowledge of it.
+
+        %article.message
+          .message-body
+            .media
+              .media-left
+                %figure.image.is-32x32
+                  = image_tag("icons/grade-2.svg", class: "grade-icon")
+              .media-content
+                .content
+                  %p.has-text-weight-bold Incorrect answer, the correct one seemed easy to recall
+                  %p Once you uncovered the answer, you remembered it quite well.
+
+        %article.message
+          .message-body
+            .media
+              .media-left
+                %figure.image.is-32x32
+                  = image_tag("icons/grade-3.svg", class: "grade-icon")
+              .media-content
+                .content
+                  %p.has-text-weight-bold Correct answer, recalled with serious difficulty
+                  %p You got the answer more or less right, but you had difficulties in remembering it.
+
+        %article.message
+          .message-body
+            .media
+              .media-left
+                %figure.image.is-32x32
+                  = image_tag("icons/grade-4.svg", class: "grade-icon")
+              .media-content
+                .content
+                  %p.has-text-weight-bold Perfect answer after a hesitation
+                  %p Your answer was perfect but after some hesitation.
+
+        %article.message
+          .message-body
+            .media
+              .media-left
+                %figure.image.is-32x32
+                  = image_tag("icons/grade-5.svg", class: "grade-icon")
+              .media-content
+                .content
+                  %p.has-text-weight-bold Perfect answer
+                  %p Your answer was perfect. There was no hesitation.
+
+        = link_to "Go back", :back, class: "control button is-dark"
+

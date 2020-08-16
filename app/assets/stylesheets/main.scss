@@ -47,6 +47,10 @@ a[disabled] {
   @extend .card-footer-item;
 }
 
+.card .card-footer img {
+  @extend figure, .image, .is-32x32;
+}
+
 .is-underline {
   text-decoration: underline;
 }

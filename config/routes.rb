@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     post "generate", on: :collection
 
     resources :answers, only: [:create]
+
+    get :legend, on: :collection
   end
 
   resources :tags, except: [:new, :create, :show]

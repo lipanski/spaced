@@ -57,6 +57,8 @@ class QuestionsController < ApplicationController
     @question = QuestionDecorator.decorate(next_question)
   end
 
+  def legend; end
+
   def generate
     generated = GenerateQuestions.new(current_user).call
 

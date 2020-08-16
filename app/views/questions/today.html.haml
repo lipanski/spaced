@@ -21,18 +21,13 @@
             %footer.card-footer{ id: "disabled_links_question_#{@question.id}" }
               - (0..5).each do |grade|
                 %a.card-footer-item{ disabled: true }
-                  = grade
+                  = image_tag("icons/grade-#{grade}.svg", alt: grade)
             %footer.card-footer.is-hidden{ id: "enabled_links_question_#{@question.id}" }
               - (0..5).each do |grade|
-                = link_to grade, question_answers_path(question_id: @question, grade: grade), method: :post, class: "card-footer-item"
+                = link_to image_tag("icons/grade-#{grade}-outline.svg", alt: grade), question_answers_path(question_id: @question, grade: grade), method: :post, class: "card-footer-item"
           %br
           .content.is-small
-            0 - complete blackout;
-            1 - incorrect response, the correct one was remembered;
-            2 - incorrect response, the correct one seemed easy to recall;
-            3 - correct response, recalled with serious difficulty;
-            4 - correct response after a hesitation;
-            5 - perfect response
+            = link_to "How does the rating work?", legend_questions_path
         - else
           %h1 Good job!
           %h2 You've answered all the questions for today. Come back tomorrow for more.
