@@ -41,29 +41,29 @@ bin/start
 
 ## Deploying to production
 
-The project provides a [`Dockerfile`](https://github.com/lipanski/spaced/blob/master/Dockerfile) which is tailored for running a production sever. You can configure it via environment variables: what's available is listed inside [`.env.example`](https://github.com/lipanski/spaced/blob/master/.env.example).
+The project provides a [`Dockerfile`](https://github.com/lipanski/spaced/blob/master/Dockerfile) which is tailored for running a production sever. You can configure it via environment variables - have a look inside [`.env.example`](https://github.com/lipanski/spaced/blob/master/.env.example) for what's available.
 
 ## Tests
 
-Run all tests:
+Run **all** tests:
 
 ```sh
 bundle exec rake
 ```
 
-...or just the unit/controller tests:
+...or just the **unit/controller** tests:
 
 ```sh
 bundle exec rake test
 ```
 
-...or just the system tests (by default they run in headless Firefox):
+...or just the **system** tests - by default they run in headless Firefox:
 
 ```sh
 bundle exec rake test:system
 ```
 
-...or just the Rubocop checks:
+...or just the **Rubocop** checks:
 
 ```sh
 bundle exec rake rubocop
