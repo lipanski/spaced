@@ -17,7 +17,6 @@ class UserTest < ApplicationSystemTestCase
 
     assert User.where(name: "Me", email: "me@example.com").exists?
     assert_equal(questions_path, current_path)
-    assert_text "Welcome! You have signed up successfully."
   end
 
   test "user can log in" do
@@ -33,6 +32,5 @@ class UserTest < ApplicationSystemTestCase
     click_on "Log in"
 
     assert_equal(questions_path, current_path)
-    assert_text "Signed in successfully."
   end
 end
