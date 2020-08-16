@@ -1,35 +1,34 @@
 %section
   .container
-    %h1 My questions
-    %h2
-      Add the questions and answers you'd like to memorize here, then click on
-      = link_to "Today", user_root_path
-      to get your daily memory exercise
-    .buttons
-      = link_to "Add a new question", new_question_path, class: "button is-dark"
-    %hr
-    = render "shared/notifications"
-    = render "pagination"
-    - if @questions.any?
-      - @questions.each do |question|
-        %article.message
-          .message-body.is-dark
-            .is-pulled-left
-              .tags
-                - question.tag_names.each do |tag_name|
-                  %span.tag.is-dark
-                    = tag_name
-              %p.is-size-4
-                = question.description
-            %p.is-pulled-right.is-size-7
-              = question.created_at
-            .is-clearfix
-            %p
-              = question.expected_answer
-            %br
-            %p.is-size-7
-              = link_to "Edit", edit_question_path(question)
-              &nbsp;•&nbsp;
-              = link_to "Destroy", question, method: :delete, data: { confirm: "Are you sure?" }
-      - if @questions.size > 10
-        = render "pagination"
+    .columns
+      .column.is-offset-2.is-8
+        = render "shared/notifications"
+        %h1 My questions
+        %h2 Add or edit your flash cards here, then go to #{link_to("Today", user_root_path)} and start training your memory
+        .buttons
+          = link_to "Add a new question", new_question_path, class: "button is-dark"
+        - if @questions.any?
+          %hr
+          = render "pagination"
+          - @questions.each do |question|
+            %article.message
+              .message-body.is-dark
+                .is-pulled-left
+                  .tags
+                    - question.tag_names.each do |tag_name|
+                      %span.tag.is-dark
+                        = tag_name
+                  %p.is-size-4
+                    = question.description
+                %p.is-pulled-right.is-size-7
+                  = question.created_at
+                .is-clearfix
+                %p
+                  = question.expected_answer
+                %br
+                %p.is-size-7
+                  = link_to "Edit", edit_question_path(question)
+                  &nbsp;•&nbsp;
+                  = link_to "Destroy", question, method: :delete, data: { confirm: "Are you sure?" }
+          - if @questions.size > 10
+            = render "pagination"

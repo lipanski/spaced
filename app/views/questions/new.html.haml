@@ -1,5 +1,7 @@
 %section
   .container
-    %h1 New question
-    = render "shared/notifications"
-    = render "form"
+    .columns
+      .column.is-6.is-offset-3
+        = render "shared/notifications"
+        %h1 Add a new question
+        = render "form"

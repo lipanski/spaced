@@ -1,4 +1,7 @@
 %section
   .container
-    %h1 Edit your question
-    = render "form"
+    .columns
+      .column.is-6.is-offset-3
+        = render "shared/notifications"
+        %h1 Edit your question
+        = render "form"

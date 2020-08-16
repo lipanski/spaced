@@ -1,19 +1,17 @@
 %section
   .container
     .columns
-      .column.is-8
-        %h1 Sign up
-        %h2 Fill in the details to start training your memory
+      .column.is-offset-3.is-6
         = render "shared/notifications"
-        = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), wrapper: :horizontal) do |f|
+        %h1 Sign up
+        %h2 You are one step away from improving your memory
+        = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
           = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
           = f.input :name
           = f.input :email
           = f.input :password
           = f.input :password_confirmation
           .field.is-horizontal
-            .field-label
-            .field-body
-              .field.is-grouped
-                = f.submit "Sign up", class: "control button is-dark"
-                = link_to "Cancel", root_path, class: "control button is-light"
+            .field.is-grouped
+              = f.submit "Sign up", class: "control button is-dark"
+              = link_to "Cancel", root_path, class: "control button is-light"

@@ -1,12 +1,12 @@
 %section
   .container
-    %h1 My tags
-    %h2 Visualize, update or remove tags
-    = render "shared/notifications"
-    .content
-      .columns
-        - @tags.each do |tag|
-          .column.is-half
+    .columns
+      .column.is-offset-2.is-8
+        = render "shared/notifications"
+        %h1 My tags
+        %h2 Visualize, edit or remove tags
+        .content
+          - @tags.each do |tag|
             .card
               .card-content
                 %p.title

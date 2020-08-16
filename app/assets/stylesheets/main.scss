@@ -5,11 +5,11 @@ $pagination-current-border-color: #1c1c1c;
 
 // NOTE: keep the HTML dry and easy to read
 section {
-  @extend .section;
+  @extend .section, .is-medium;
 }
 
 .hero {
-  @extend .is-dark.is-bold;
+  @extend .is-dark, .is-bold;
 }
 
 label {
@@ -45,4 +45,8 @@ a[disabled] {
 
 .card .card-footer a {
   @extend .card-footer-item;
+}
+
+.is-underline {
+  text-decoration: underline;
 }

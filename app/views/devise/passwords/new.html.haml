@@ -2,9 +2,9 @@
   .container
     .columns
       .column.is-6.is-offset-3
-        %h1 Forgot your password?
-        %h2 Fill in the details in order to generate a new one
         = render "shared/notifications"
+        %h1 Forgot your password?
+        %h2 Fill in the details below in order to reset your password
         = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
           = f.input :email
           .field.is-grouped

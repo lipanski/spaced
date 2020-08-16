@@ -2,9 +2,9 @@
   .container
     .columns
       .column.is-6.is-offset-3
+        = render "shared/notifications"
         %h1 Change your password
         %h2 Fill in the details in order to change your password
-        = render "shared/notifications"
         = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
           = f.input :reset_password_token, as: :hidden
           = f.input :password
