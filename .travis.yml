@@ -17,8 +17,7 @@ env:
     SECRET_KEY_BASE: secret
     SPACED_REPLY_TO_EMAIL: noreply@example.com
 before_script:
-  - yarn install
-  - psql -U postgres -c 'create database spaced_test;'
+  - bin/setup
 script:
   - bundle exec rake test
   - HEADLESS=1 bundle exec rake test:system
