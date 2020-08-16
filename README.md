@@ -1,6 +1,6 @@
 # Spaced
 
-Spaced is a web app to help you memorize anything that fits on a flash card. The project makes use of the [spaced repetition technique](https://en.wikipedia.org/wiki/Spaced_repetition). Every day you'll be presented with a deck of cards. Difficult cards will show up more often than the easier ones. You can use this technique to learn languages, historical facts, phone numbers, medical terms, programming languages or, my favourite, Vim commands.
+Spaced is a web app that helps you memorize anything that fits on a flash card. The project makes use of the [spaced repetition technique](https://en.wikipedia.org/wiki/Spaced_repetition). Every day you'll be presented with a deck of cards. Difficult cards will show up more often than the easier ones. You can use this technique to learn foreign words, phone numbers, historical facts, medical terms, programming languages, keyboard shortcuts.
 
 Spaced is a pet project and it's also my Ruby on Rails playground. It's where I try out new concepts and show case some of the [best practices](https://github.com/lipanski/spaced/search?q=%22%23+NOTE%22&unscoped_q=%22%23+NOTE%22) I know. The hosted version of the project doesn't guarantee 100% uptime or 100% data integrity, but I'll do my best to keep the server running and your data safe and intact. You can always run your own version under the GPL-3.0 license.
 

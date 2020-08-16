@@ -1,6 +1,9 @@
-.hero.is-medium.is-dark.is-bold.is-fullheight-with-navbar
+.hero.is-medium.is-fullheight-with-navbar
   .hero-body
     .container
-      %h1 Improve your memory with the spaced repetition technique
+      %h1 Memorize anything that can fit on a flash card
+      %h2 Foreign words, phone numbers, historical facts, medical terms, programming languages, keyboard shortcuts and more.
       %h2
-        = link_to "Start here", user_signed_in? ? user_root_path : new_user_registration_path
+        = link_to "Start here", start_path
+        or
+        = link_to "Find out more", about_path

@@ -8,6 +8,10 @@ section {
   @extend .section;
 }
 
+.hero {
+  @extend .is-dark.is-bold;
+}
+
 label {
   @extend .label;
 }
