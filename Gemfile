@@ -6,6 +6,7 @@ ruby "2.7.1"
 
 gem "rails", "~> 6.0.3"
 
+gem "webpacker"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "devise"
 gem "pg", ">= 0.18", "< 2.0"
@@ -16,14 +17,10 @@ gem "rack-timeout" # NOTE: timeout requests (puma doesn't)
 gem "draper"
 gem "hamlit" # NOTE: fast haml implementation
 gem "pagy" # NOTE: fast pagination
-gem "sass-rails", ">= 6"
 gem "turbolinks", "~> 5"
 gem "simple_form" # NOTE: keeps forms very DRY
 
 gem "strong_migrations" # NOTE: prevent unsafe migrations
-
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

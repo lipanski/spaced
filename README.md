@@ -41,7 +41,19 @@ bin/start
 
 ## Deploying to production
 
-The project provides a [`Dockerfile`](https://github.com/lipanski/spaced/blob/master/Dockerfile) which is tailored for running a production sever. You can configure it via environment variables - have a look inside [`.env.example`](https://github.com/lipanski/spaced/blob/master/.env.example) for what's available.
+The project provides a [`Dockerfile`](https://github.com/lipanski/spaced/blob/master/Dockerfile) which is tailored for running a production sever. You can configure it via environment variables. Have a look inside [`.env.example`](https://github.com/lipanski/spaced/blob/master/.env.example) for the full list of variables.
+
+You can build the production Docker image by running:
+
+```sh
+docker build -t spaced .
+```
+
+...and you can try it out inside your development environment by running:
+
+```
+docker run -it --rm --net=host --env-file .env -e "RAILS_ENV=production" -e "SPACED_DB_USER=$USER" -e "SPACED_DB_NAME=spaced_development" spaced
+```
 
 ## Tests
 

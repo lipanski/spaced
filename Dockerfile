@@ -4,20 +4,20 @@ RUN apk add --update \
   postgresql-dev \
   sqlite-dev \
   tzdata \
-  nodejs
+  nodejs \
+  yarn
 
 FROM base AS dependencies
 
 RUN apk add --update \
-  build-base \
-  yarn
+  build-base
 
 COPY Gemfile Gemfile.lock ./
 RUN bundle config set without 'development test'
 RUN bundle install
 
 COPY package.json yarn.lock ./
-RUN yarn install
+RUN yarn install --frozen-lockfile
 
 FROM base
 
@@ -27,18 +27,9 @@ WORKDIR /home/app
 
 COPY --from=dependencies /usr/local/bundle/ /usr/local/bundle/
 COPY --chown=app --from=dependencies /node_modules/ node_modules/
-
-# Copy all resources required for precompiling assets
-COPY --chown=app Gemfile Gemfile.lock Rakefile ./
-COPY --chown=app app/assets app/assets
-COPY --chown=app config/initializers config/initializers
-COPY --chown=app config/environments config/environments
-COPY --chown=app config/application.rb config/boot.rb config/environment.rb config/
-COPY --chown=app vendor vendor
-
-# Precompile assets
-RUN RAILS_ENV=production SECRET_KEY_BASE=assets bundle exec rake assets:precompile
-
 COPY --chown=app . ./
+
+# Compile assets
+RUN RAILS_ENV=production SECRET_KEY_BASE=assets bundle exec rake webpacker:compile
 
 CMD ["bin/start"]
