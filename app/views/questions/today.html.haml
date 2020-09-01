@@ -5,7 +5,7 @@
         = render "shared/notifications"
         - if @question.present?
           %h2 Answer the following question, reveal the answer and rate your performance
-          .card
+          .card{ data: { controller: "today" } }
             .card-content
               .content
                 - if @question.tag_names
@@ -15,16 +15,12 @@
                         = tag_name
                 %p.title
                   = @question.description
-                = link_to "Show answer", "#", data: { answer_for_question: "question_#{@question.id}" }
-                %p.is-hidden{ id: "answer_question_#{@question.id}" }
+                = link_to "Show answer", "#", data: { action: "click->today#showAnswer" }
+                %p.is-hidden{ data: { target: "today.answer" } }
                   = @question.expected_answer
-            %footer.card-footer{ id: "disabled_links_question_#{@question.id}" }
+            %footer.card-footer
               - (0..5).each do |grade|
-                %a.card-footer-item{ disabled: true }
-                  = image_pack_tag("icons/grade-#{grade}-outline.svg", alt: grade)
-            %footer.card-footer.is-hidden{ id: "enabled_links_question_#{@question.id}" }
-              - (0..5).each do |grade|
-                = link_to image_pack_tag("icons/grade-#{grade}.svg", alt: grade), question_answers_path(question_id: @question, grade: grade), method: :post, class: "card-footer-item"
+                = link_to grade, question_answers_path(question_id: @question, grade: grade), method: :post, class: "grade grade-#{grade} card-footer-item", disabled: true, data: { action: "click->today#rateAnswer", target: "today.gradeLink" }
           %br
           .content.is-small
             = link_to "How does the rating work?", legend_questions_path

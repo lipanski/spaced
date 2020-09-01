@@ -47,11 +47,58 @@ a[disabled] {
   @extend .card-footer-item;
 }
 
-.card .card-footer img {
-  @extend figure, .image, .is-32x32;
-}
-
 .is-underline {
   text-decoration: underline;
 }
 
+a.grade {
+  height: 64px;
+}
+
+a.grade.grade-0[disabled] {
+  content: url("~images/icons/grade-0-outline.svg");
+}
+
+a.grade.grade-0 {
+  content: url("~images/icons/grade-0.svg");
+}
+
+a.grade.grade-1[disabled] {
+  content: url("~images/icons/grade-1-outline.svg");
+}
+
+a.grade.grade-1 {
+  content: url("~images/icons/grade-1.svg");
+}
+
+a.grade.grade-2[disabled] {
+  content: url("~images/icons/grade-2-outline.svg");
+}
+
+a.grade.grade-2 {
+  content: url("~images/icons/grade-2.svg");
+}
+
+a.grade.grade-3[disabled] {
+  content: url("~images/icons/grade-3-outline.svg");
+}
+
+a.grade.grade-3 {
+  content: url("~images/icons/grade-3.svg");
+}
+
+a.grade.grade-4[disabled] {
+  content: url("~images/icons/grade-4-outline.svg");
+}
+
+a.grade.grade-4 {
+  content: url("~images/icons/grade-4.svg");
+}
+
+a.grade.grade-5[disabled] {
+  content: url("~images/icons/grade-5-outline.svg");
+}
+
+a.grade.grade-5 {
+  content: url("~images/icons/grade-5.svg");
+}
