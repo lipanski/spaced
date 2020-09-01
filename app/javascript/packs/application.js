@@ -3,8 +3,11 @@
 const images = require.context('../images', true)
 const imagePath = (name) => images(name, true)
 
-require("@rails/ujs").start()
-require("turbolinks").start()
+import Turbolinks from "turbolinks"
+Turbolinks.start()
+
+import Rails from "@rails/ujs"
+Rails.start()
 
 import { Application } from "stimulus"
 import { definitionsFromContext } from "stimulus/webpack-helpers"
