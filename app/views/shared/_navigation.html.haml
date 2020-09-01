@@ -1,14 +1,14 @@
-.navbar.hero-head
+.navbar.hero-head{ data: { controller: "navigation" } }
   .container
     .navbar-brand
       .navbar-item
         %h1
           = link_to "SPACED", user_signed_in? ? user_root_path : root_path
-      .navbar-burger{ data: { target: "navigation" } }
+      .navbar-burger{ data: { action: "click->navigation#showMenu" } }
         %span
         %span
         %span
-    .navbar-menu#navigation
+    .navbar-menu{ data: { target: "navigation.menu" } }
       .navbar-start
       .navbar-end
         - if user_signed_in?

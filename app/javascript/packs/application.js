@@ -7,33 +7,9 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 
 import { Application } from "stimulus"
-import TodayController from "../controllers/today_controller"
+import { definitionsFromContext } from "stimulus/webpack-helpers"
 
 const application = Application.start()
-application.register("today", TodayController)
+const context = require.context("../controllers", true, /\.js$/)
+application.load(definitionsFromContext(context))
 
-document.addEventListener("turbolinks:load", function() {
-  (document.querySelectorAll(".notification .delete") || []).forEach(function(item) {
-    var notification = item.parentNode;
-
-    item.addEventListener("click", function() {
-      notification.parentNode.removeChild(notification);
-    });
-  });
-
-  // Enable the hamburger button on mobile resolutions
-  if ( document.querySelectorAll(".navbar-burger") ) {
-    var navbarBurgers = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
-
-    if (navbarBurgers.length > 0) {
-      navbarBurgers.forEach(function (element) {
-        element.addEventListener("click", function () {
-          var target = document.getElementById(element.dataset.target);
-
-          element.classList.toggle("is-active");
-          target.classList.toggle("is-active");
-        });
-      });
-    }
-  }
-});
