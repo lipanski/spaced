@@ -60,7 +60,11 @@ a.grade {
     content: url("~images/icons/grade-#{$i}-outline.svg");
   }
 
-  a.grade.grade-#{$i} {
+  a.grade.grade-#{$i}:not([disabled]) {
     content: url("~images/icons/grade-#{$i}.svg");
+  }
+
+  a.grade.grade-#{$i}:not([disabled]):hover {
+    opacity: 0.5;
   }
 }
