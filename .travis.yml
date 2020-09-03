@@ -8,6 +8,7 @@ cache: bundler
 env:
   global:
     RAILS_ENV: test
+    NODE_ENV: test
     RACK_TIMEOUT_SERVICE_TIMEOUT: 15
     SPACED_THREADS: 5
     SPACED_PUBLIC_URL: http://localhost:3000
