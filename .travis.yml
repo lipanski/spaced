@@ -2,6 +2,9 @@ dist: bionic
 language: ruby
 addons:
   postgresql: "9.6"
+  apt:
+    packages:
+      - yarn
 rvm: 2.7.1
 node_js: 12.16.3
 cache: bundler
@@ -9,14 +12,15 @@ env:
   global:
     RAILS_ENV: test
     NODE_ENV: test
-    RACK_TIMEOUT_SERVICE_TIMEOUT: 15
-    SPACED_THREADS: 5
+    RACK_TIMEOUT_SERVICE_TIMEOUT: "15"
+    SPACED_THREADS: "5"
     SPACED_PUBLIC_URL: http://localhost:3000
-    SPACED_SERVER_PORT: 3000
+    SPACED_SERVER_PORT: "3000"
     SPACED_DB_USER: postgres
     SPACED_DB_NAME: spaced_test
     SECRET_KEY_BASE: secret
     SPACED_REPLY_TO_EMAIL: noreply@example.com
+    NOKOGIRI_USE_SYSTEM_LIBRARIES: "1"
 before_script:
   - bin/setup
 script:
