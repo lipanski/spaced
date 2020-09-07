@@ -14,7 +14,7 @@ RUN apk add --update \
 
 COPY Gemfile Gemfile.lock ./
 RUN bundle config set without 'development test'
-RUN bundle install
+RUN bundle install --jobs=3 --retry=3
 
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile

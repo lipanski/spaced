@@ -10,20 +10,18 @@ cache:
     - node_modules
 env:
   global:
-    RAILS_ENV: test
-    NODE_ENV: test
-    RACK_TIMEOUT_SERVICE_TIMEOUT: "15"
-    SPACED_THREADS: "5"
-    SPACED_PUBLIC_URL: http://localhost:3000
-    SPACED_SERVER_PORT: "3000"
-    SPACED_DB_USER: postgres
-    SPACED_DB_NAME: spaced_test
-    SECRET_KEY_BASE: secret
-    SPACED_REPLY_TO_EMAIL: noreply@example.com
     NOKOGIRI_USE_SYSTEM_LIBRARIES: "1"
-before_script:
+    RACK_TIMEOUT_SERVICE_TIMEOUT: "15"
+    RAILS_ENV: test
+    SECRET_KEY_BASE: secret
+    SPACED_DB_NAME: spaced_test
+    SPACED_DB_USER: postgres
+    SPACED_PUBLIC_URL: http://localhost:3000
+    SPACED_REPLY_TO_EMAIL: noreply@example.com
+    SPACED_SERVER_PORT: "3000"
+    SPACED_THREADS: "5"
+install:
   - nvm install 12.16.3
-  - node -v
   - npm install --no-save -g yarn
   - bin/setup
 script:
