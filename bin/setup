@@ -18,7 +18,8 @@ FileUtils.chdir(APP_ROOT) do
   system! "gem install bundler --conservative"
   system("bundle check") || system!("bundle install")
 
-  system("bin/yarn")
+  puts "\n== Installing Javascript dependencies =="
+  system! "bin/yarn"
 
   puts "\n== Creating .env file =="
   unless File.exist?(".env")
