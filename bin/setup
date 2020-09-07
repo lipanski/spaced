@@ -19,7 +19,7 @@ FileUtils.chdir(APP_ROOT) do
   system("bundle check") || system!("bundle install")
 
   puts "\n== Installing Javascript dependencies =="
-  system! "bin/yarn"
+  system! "yarn install --check-files"
 
   puts "\n== Creating .env file =="
   unless File.exist?(".env")

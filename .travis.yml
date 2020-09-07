@@ -3,8 +3,11 @@ language: ruby
 addons:
   postgresql: "9.6"
 rvm: 2.7.1
-node_js: 12.16.3
-cache: bundler
+cache:
+  bundler: true
+  yarn: true
+  directories:
+    - node_modules
 env:
   global:
     RAILS_ENV: test
@@ -19,8 +22,9 @@ env:
     SPACED_REPLY_TO_EMAIL: noreply@example.com
     NOKOGIRI_USE_SYSTEM_LIBRARIES: "1"
 before_script:
+  - nvm install 12.16.3
   - node -v
-  - npm install yarn
+  - npm install --no-save -g yarn
   - bin/setup
 script:
   - bundle exec rake
