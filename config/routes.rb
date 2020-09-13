@@ -27,9 +27,9 @@ Rails.application.routes.draw do
 
   ### GraphQL ###
 
-  # NOTE: We also use Devise for authenticating the API.
-  # We'd like to enable helpers (`authenticate_api_credential!`)
-  # but we don't want any routes created (`skip: :all`).
+  # NOTE: we also use Devise for authenticating the API:
+  # we'd like to enable magic helpers (e.g. `authenticate_api_credential!`)
+  # but we don't want any routes created (`skip: :all`)
   devise_for :api_credentials, skip: :all, failure_app: "GraphqlFailureApp"
 
   post "/api/graphql", to: "graphql#execute"

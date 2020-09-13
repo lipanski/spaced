@@ -6,5 +6,6 @@ module Types
     field :expected_answer, String, null: false, description: "The expected answer"
     field :due_at, GraphQL::Types::ISO8601DateTime, null: false
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
+    field :tags, [TagType], null: false
   end
 end
