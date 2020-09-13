@@ -14,6 +14,10 @@ gem "pg_search"
 gem "puma", "~> 4.3"
 gem "rack-timeout" # NOTE: timeout requests (puma doesn't)
 
+# API
+gem "graphql"
+gem "graphql-batch"
+
 gem "draper"
 gem "hamlit" # NOTE: fast haml implementation
 gem "pagy" # NOTE: fast pagination
