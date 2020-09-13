@@ -52,7 +52,7 @@ a[disabled] {
 }
 
 a.grade {
-  height: 64px;
+  max-height: 64px;
 }
 
 @for $i from 0 through 5 {
