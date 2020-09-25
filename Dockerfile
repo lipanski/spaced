@@ -11,7 +11,7 @@ RUN apk add --update \
 
 FROM base AS dependencies
 
-# NOTE: Use system libxml2 and libxslt when install Nokogiri to speed up the build
+# NOTE: Use system libxml2 and libxslt when installing Nokogiri to speed up the build
 ENV NOKOGIRI_USE_SYSTEM_LIBRARIES=1
 
 RUN apk add --update \
