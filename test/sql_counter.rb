@@ -1,16 +1,21 @@
+# frozen_string_literal: true
+
 # The SqlCounter provides an overview of all the SQL queries performed within the given block.
+#
+# Every returned query expoes the `#model_name`, the `#sql` query as well as a few convenience
+# methods like `#select?`, `#insert?`, `#update?`, `#delete?`.
 #
 # Example:
 #
 # ```
-# SqlCounter.capture do |queries|
+# queries = SqlCounter.capture do
 #   get "/posts"
-#
-#   assert_equal 3, queries.count
-#   assert_equal 2, queries.select(&:select?).count
-#   assert_equal 1, queries.select(&:update?).count
-#   assert_equal "User", queries.first.model_name
 # end
+#
+# assert_equal 3, queries.count
+# assert_equal 2, queries.select(&:select?).count
+# assert_equal 1, queries.select(&:update?).count
+# assert_equal "User", queries.first.model_name
 # ```
 class SqlCounter
   Query = Struct.new(:name, :sql) do
@@ -39,12 +44,14 @@ class SqlCounter
     end
   end
 
-  def self.capture(&block)
-    new.tap do |counter|
-      ActiveSupport::Notifications.subscribe("sql.active_record", counter)
-      yield(counter.queries)
-      ActiveSupport::Notifications.unsubscribe(counter)
-    end
+  def self.capture
+    counter = new
+
+    ActiveSupport::Notifications.subscribe("sql.active_record", counter)
+    yield
+    ActiveSupport::Notifications.unsubscribe(counter)
+
+    counter.queries
   end
 
   def queries
@@ -55,6 +62,6 @@ class SqlCounter
     return if values[:cached]
     return if values[:name].nil?
 
-    self.queries << Query.new(values[:name], values[:sql])
+    queries << Query.new(values[:name], values[:sql])
   end
 end
