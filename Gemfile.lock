@@ -216,6 +216,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sql_spy (0.2.0)
     strong_migrations (0.6.8)
       activerecord (>= 5)
     temple (0.8.2)
@@ -277,6 +278,7 @@ DEPENDENCIES
   rubocop
   selenium-webdriver
   simple_form
+  sql_spy
   strong_migrations
   turbolinks (~> 5)
   web-console (>= 3.3.0)
