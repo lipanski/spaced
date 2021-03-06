@@ -22,10 +22,8 @@ class AnswerQuestion
         grade: @grade
       ).save || (raise ActiveRecord::Rollback)
 
-      return true
+      true
     end
-
-    false
   end
 
   private
