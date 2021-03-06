@@ -2,25 +2,16 @@ FROM ruby:2.7.1-alpine AS base
 
 RUN apk add --update \
   postgresql-dev \
-  sqlite-dev \
-  libxml2 \
-  libxslt \
   tzdata \
   nodejs \
   yarn
 
 FROM base AS dependencies
 
-# NOTE: Use system libxml2 and libxslt when installing Nokogiri to speed up the build
-ENV NOKOGIRI_USE_SYSTEM_LIBRARIES=1
-
-RUN apk add --update \
-  build-base \
-  libxml2-dev \
-  libxslt-dev
+RUN apk add --update build-base
 
 COPY Gemfile Gemfile.lock ./
-RUN bundle config set without 'development test'
+RUN bundle config set without "development test"
 RUN bundle install --jobs=3 --retry=3
 
 COPY package.json yarn.lock ./
