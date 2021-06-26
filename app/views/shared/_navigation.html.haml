@@ -4,7 +4,7 @@
       .navbar-item
         %h1
           = link_to "SPACED", user_signed_in? ? user_root_path : root_path
-      .navbar-burger{ data: { action: "click->navigation#showMenu" } }
+      .navbar-burger{ data: { action: "navigation#showMenu" } }
         %span
         %span
         %span

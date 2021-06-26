@@ -6,8 +6,8 @@
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1" }
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_pack_tag "application", "data-turbolinks-track": "reload", media: "all"
-    = javascript_pack_tag "application", "data-turbolinks-track": "reload"
+    = stylesheet_bundle_tag "application", media: "all", "data-turbo-track": "reload"
+    = javascript_bundle_tag "application", "data-turbo-track": "reload"
   %body
     = render "shared/navigation"
     = yield
