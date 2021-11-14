@@ -8,6 +8,6 @@
     = csp_meta_tag
     = stylesheet_bundle_tag "application", media: "all", "data-turbo-track": "reload"
     = javascript_bundle_tag "application", "data-turbo-track": "reload"
-  %body
+  %body.flex.flex-col.w-screen.h-screen
     = render "shared/navigation"
     = yield

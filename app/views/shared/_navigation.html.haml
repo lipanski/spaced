@@ -1,25 +1,15 @@
-.navbar.hero-head{ data: { controller: "navigation" } }
-  .container
-    .navbar-brand
-      .navbar-item
-        %h1
-          = link_to "SPACED", user_signed_in? ? user_root_path : root_path
-      .navbar-burger{ data: { action: "navigation#showMenu" } }
-        %span
-        %span
-        %span
-    .navbar-menu{ data: { target: "navigation.menu" } }
-      .navbar-start
-      .navbar-end
-        - if user_signed_in?
-          .navbar-item
-            = link_to "+", new_question_path, class: "button is-dark is-outlined"
-          = link_to "Today", user_root_path, class: "navbar-item"
-          = link_to "My questions", questions_path, class: "navbar-item"
-          = link_to "My tags", tags_path, class: "navbar-item"
-          = link_to "Profile", edit_user_registration_path, class: "navbar-item"
-          = link_to "Logout", destroy_user_session_path, method: :delete, class: "navbar-item"
-        - else
-          = link_to "About", about_path, class: "navbar-item"
-          = link_to "Register", new_user_registration_path, class: "navbar-item"
-          = link_to "Login", new_user_session_path, class: "navbar-item"
+.container.mx-auto.flex.flex-row.justify-between.items-center.pt-2.pb-2
+  .left
+    = link_to "SPACED", user_signed_in? ? user_root_path : root_path, class: "text-3xl font-bold"
+  .right.space-x-2
+    - if user_signed_in?
+      = link_to "+", new_question_path
+      = link_to "Today", user_root_path
+      = link_to "My questions", questions_path
+      = link_to "My tags", tags_path
+      = link_to "Profile", edit_user_registration_path
+      = link_to "Logout", destroy_user_session_path, method: :delete
+    - else
+      = link_to "About", about_path
+      = link_to "Register", new_user_registration_path
+      = link_to "Login", new_user_session_path

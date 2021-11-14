@@ -1,9 +1,8 @@
-.hero.is-medium.is-fullheight-with-navbar
-  .hero-body
-    .container
-      %h1 Memorize anything that can fit on a flash card
-      %h2 Foreign words, phone numbers, historical facts, medical terms, programming languages, keyboard shortcuts and more.
-      %h2
-        = link_to "Start here", start_path, class: "is-underline"
-        or
-        = link_to "Find out more", about_path
+.flex.flex-grow.bg-gradient-to-br.from-black.to-gray-800.text-white
+  .container.mx-auto.flex.flex-col.flex-grow.justify-center
+    %h1.text-3xl.font-bold Memorize anything that can fit on a flash card
+    %h2.text-xl Foreign words, phone numbers, historical facts, medical terms, programming languages, keyboard shortcuts and more.
+    %h2.text-xl.mt-6
+      = link_to "Start here", start_path, class: "underline"
+      or
+      = link_to "Find out more", about_path
