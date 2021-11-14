@@ -1,8 +1,8 @@
 <div class="container mx-auto flex flex-row justify-between items-center pt-2 pb-2">
   <div class="left">
-    <%= link_to "SPACED", user_signed_in? ? user_root_path : root_path, class: "text-3xl font-bold" %>
+    <%= link_to "SPACED", user_signed_in? ? user_root_path : root_path, class: "text-3xl font-bold hover:text-black" %>
   </div>
-  <div class="right space-x-2">
+  <div class="right space-x-4">
     <% if user_signed_in? %>
       <%= link_to "+", new_question_path %>
       <%= link_to "Today", user_root_path %>

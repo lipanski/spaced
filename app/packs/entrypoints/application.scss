@@ -3,4 +3,29 @@
 @import "tailwindcss/utilities";
 
 body {
+  font-family: BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+p a {
+  @apply underline text-gray-500;
+}
+
+a:hover {
+  @apply text-gray-400;
+}
+
+.text-white a:hover {
+  @apply text-gray-400;
+}
+
+h1 {
+  @apply text-3xl font-bold mb-4;
+}
+
+h2 {
+  @apply text-xl mb-4;
+}
+
+p {
+  @apply mb-4;
 }
