@@ -1,0 +1,28 @@
+<section>
+  <div class="container">
+    <div class="columns">
+      <div class="column is-offset-2 is-8">
+        <%= render "shared/notifications" %>
+        <h1>Profile</h1>
+        <h2>Edit your account details</h2>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+          <%= f.input :name %>
+          <%= f.input :email %>
+          <%= f.input :password %>
+          <%= f.input :password_confirmation %>
+          <div class="field is-grouped">
+            <%= f.submit "Save", class: "control button is-dark" %>
+            <%= link_to "Cancel", root_path, class: "control button is-light" %>
+          </div>
+          <hr/>
+          <p>
+            <%= link_to "Generate 500 random questions", generate_questions_path, method: :post, data: { confirm: "Are you sure?" } %>
+            &nbsp;•&nbsp;
+            <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

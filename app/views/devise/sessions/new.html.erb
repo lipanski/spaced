@@ -1,0 +1,23 @@
+<section>
+  <div class="container">
+    <div class="columns">
+      <div class="column is-offset-4 is-4">
+        <%= render "shared/notifications" %>
+        <h1>Log in</h1>
+        <h2>You're almost there</h2>
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+          <%= f.input :email %>
+          <%= f.input :password, hint: false %>
+          <%= f.input :remember_me, as: :boolean %>
+          <div class="field is-grouped">
+            <%= f.submit "Log in", class: "control button is-dark" %>
+            <%= link_to "Cancel", root_path, class: "control button is-light" %>
+          </div>
+        <% end %>
+        <hr/>
+        <%= link_to "Forgot your password?", new_user_password_path %>
+      </div>
+    </div>
+  </div>
+</section>

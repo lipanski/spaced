@@ -20,7 +20,6 @@ gem "graphql"
 gem "minipack" # NOTE: use a vanilla webpack config
 gem "turbo-rails"
 gem "draper"
-gem "hamlit" # NOTE: fast haml implementation
 gem "pagy" # NOTE: fast pagination
 gem "simple_form" # NOTE: keeps forms very DRY
 

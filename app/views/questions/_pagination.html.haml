@@ -1,7 +1,0 @@
-.columns
-  .column
-    = form_for(questions_path, method: :get) do |f|
-      = text_field_tag :q, params[:q], placeholder: "Search"
-  .column.has-text-right-tablet
-    = pagy_prev_link(@pagy, html: { class: "button" })
-    = pagy_next_link(@pagy, html: { class: "button" })

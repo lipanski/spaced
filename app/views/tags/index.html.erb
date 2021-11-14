@@ -1,0 +1,34 @@
+<section>
+  <div class="container">
+    <div class="columns">
+      <div class="column is-offset-2 is-8">
+        <%= render "shared/notifications" %>
+        <h1>My tags</h1>
+        <% if @tags.any? %>
+          <h2>Visualize, edit or remove tags</h2>
+        <% else %>
+          <h2>You don't have any tags yet. Tags are created when you #{link_to("add new questions", new_question_path)}.</h2>
+        <% end %>
+        <div class="content">
+          <% @tags.each do |tag| %>
+            <p>
+              <div class="card">
+                <div class="card-content">
+                  <p class="title">
+                    <%= tag.name %>
+                  </p>
+                </div>
+                <footer class="card-footer">
+                  <%= link_to "Questions", questions_path(q: "tag:#{tag.name}") %>
+                  <%= link_to "Edit", edit_tag_path(tag) %>
+                  <%= link_to "Remove tag", tag, method: :delete, data: { confirm: "This will remove the tag but not the questions. Are you sure?" } %>
+                  <%= link_to "Remove questions", tag_path(tag, include_questions: 1), method: :delete, data: { confirm: "This will remove all the tagged questions. Are you sure?" } %>
+                </footer>
+              </div>
+            </p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

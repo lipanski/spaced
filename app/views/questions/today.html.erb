@@ -1,0 +1,46 @@
+<section>
+  <div class="container">
+    <div class="columns">
+      <div class="column is-offset-2 is-8">
+        <%= render "shared/notifications" %>
+        <% if @question.present? %>
+          <h2>Answer the following question, reveal the answer and rate your performance</h2>
+          <div class="card" data-controller="today">
+            <div class="card-content">
+              <div class="content">
+                <% if @question.tag_names %>
+                  <div class="tags">
+                    <% @question.tag_names.each do |tag_name| %>
+                      <span class="tag is-dark">
+                        <%= tag_name %>
+                      </span>
+                    <% end %>
+                  </div>
+                <% end %>
+                <p class="title">
+                  <%= @question.description %>
+                </p>
+                <%= link_to "Show answer", "#", data: { action: "click->today#showAnswer" } %>
+                <p class="is-hidden" data-target="today.answer">
+                  <%= @question.expected_answer %>
+                </p>
+              </div>
+            </div>
+            <footer class="card-footer">
+              <% (0..5).each do |grade| %>
+                <%= link_to grade, question_answers_path(question_id: @question, grade: grade), method: :post, class: "grade grade-#{grade} card-footer-item", disabled: true, data: { action: "click->today#rateAnswer", target: "today.gradeLink" } %>
+              <% end %>
+            </footer>
+          </div>
+          <br/>
+          <div class="content is-small">
+            <%= link_to "How does the rating work?", legend_questions_path %>
+          </div>
+        <% else %>
+          <h1>Good job!</h1>
+          <h2>You've answered all the questions for today. Come back tomorrow for more.</h2>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
