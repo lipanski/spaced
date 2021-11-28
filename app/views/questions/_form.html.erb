@@ -3,9 +3,9 @@
   <%= f.input :description, autofocus: true %>
   <%= f.input :expected_answer, as: :text %>
   <%= f.input :csv_tag_names %>
-  <%= f.input :repeat, as: :boolean if f.object.respond_to?(:repeat) %>
-  <div class="field is-grouped">
-    <%= f.button :submit, class: "control button is-dark" %>
-    <%= link_to "Cancel", :back, class: "control button is-light" %>
+  <%= f.input :repeat, as: :boolean, wrapper: "horizontal" if f.object.respond_to?(:repeat) %>
+  <div class="field horizontal">
+    <%= f.button :submit, class: "button primary" %>
+    <%= link_to "Cancel", :back, class: "button" %>
   </div>
 <% end %>

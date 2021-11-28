@@ -27,17 +27,10 @@ SimpleForm.setup do |config|
     b.optional(:min_max)
     b.optional(:readonly)
 
-    b.wrapper(tag: :div, class: "field-label") do |fl|
-      fl.use :label, error_class: "has-text-danger"
-    end
-
-    b.wrapper(tag: :div, class: "field-body") do |fb|
-      fb.wrapper(tag: :div, class: "field") do |f|
-        f.use :input, wrap_with: { class: "control" }, error_class: "error"
-        f.use :error, wrap_with: { tag: :p, class: "help error" }
-        f.use :hint,  wrap_with: { tag: :p, class: "help" }
-      end
-    end
+    b.use :label, error_class: "error"
+    b.use :input, wrap_with: { class: "control" }, error_class: "error"
+    b.use :error, wrap_with: { tag: :p, class: "help error" }
+    b.use :hint,  wrap_with: { tag: :p, class: "help" }
   end
 
   # The default wrapper to be used by the FormBuilder.

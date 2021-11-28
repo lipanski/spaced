@@ -43,11 +43,11 @@ section {
   @apply mb-4;
 }
 
-.field input {
+.field input, .field textarea {
   @apply block w-full;
 }
 
-.field.horizontal input {
+.field.horizontal input, .field.horizontal textarea {
   @apply inline-block w-auto;
 }
 
@@ -67,15 +67,15 @@ label {
   @apply font-bold;
 }
 
-input {
+input, textarea {
   @apply border rounded border-gray-200 p-1;
 }
 
-input:hover {
+input:hover, textarea:hover {
   @apply shadow-inner;
 }
 
-input:focus {
+input:focus, textarea:focus {
   @apply border-blue-200 shadow-inner outline-none;
 }
 

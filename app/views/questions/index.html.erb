@@ -1,50 +1,44 @@
 <section>
-  <div class="container">
-    <div class="columns">
-      <div class="column is-offset-2 is-8">
-        <%= render "shared/notifications" %>
-        <h1>My questions</h1>
-        <h2>Add or edit your flash cards here, then go to #{link_to("Today", user_root_path)} and start training your memory</h2>
-        <div class="buttons">
-          <%= link_to "Add a new question", new_question_path, class: "button is-dark" %>
-        </div>
-        <hr/>
-        <%= render "pagination" %>
-        <% @questions.each do |question| %>
-          <article class="message">
-            <div class="message-body is-dark">
-              <div class="is-pulled-left">
-                <div class="tags">
-                  <% question.tag_names.each do |tag_name| %>
-                    <span class="tag is-dark">
-                      <%= tag_name %>
-                    </span>
-                  <% end %>
-                </div>
-                <p class="is-size-4">
-                  <%= question.description %>
-                </p>
-              </div>
-              <p class="is-pulled-right is-size-7">
-                <%= question.created_at %>
-              </p>
-              <div class="is-clearfix"></div>
-              <p>
-                <%= question.expected_answer %>
-              </p>
-              <br/>
-              <p class="is-size-7">
-                <%= link_to "Edit", edit_question_path(question) %>
-                &nbsp;•&nbsp;
-                <%= link_to "Destroy", question, method: :delete, data: { confirm: "Are you sure?" } %>
-              </p>
-            </div>
-          </article>
-        <% end %>
-        <% if @questions.size > 10 %>
-          <%= render "pagination" %>
-        <% end %>
-      </div>
-    </div>
+  <%= render "shared/notifications" %>
+  <h1>My questions</h1>
+  <h2 class="subtitle">Add or edit your flash cards here, then go to <%= link_to("Today", user_root_path) %> and start training your memory</h2>
+  <div class="buttons">
+    <%= link_to "Add a new question", new_question_path, class: "button primary" %>
   </div>
+  <hr/>
+  <%= render "pagination" %>
+  <% @questions.each do |question| %>
+    <article class="message">
+      <div class="message-body is-dark">
+        <div class="is-pulled-left">
+          <div class="tags">
+            <% question.tag_names.each do |tag_name| %>
+              <span class="tag is-dark">
+                <%= tag_name %>
+              </span>
+            <% end %>
+          </div>
+          <p class="is-size-4">
+            <%= question.description %>
+          </p>
+        </div>
+        <p class="is-pulled-right is-size-7">
+          <%= question.created_at %>
+        </p>
+        <div class="is-clearfix"></div>
+        <p>
+          <%= question.expected_answer %>
+        </p>
+        <br/>
+        <p class="is-size-7">
+          <%= link_to "Edit", edit_question_path(question) %>
+          &nbsp;•&nbsp;
+          <%= link_to "Destroy", question, method: :delete, data: { confirm: "Are you sure?" } %>
+        </p>
+      </div>
+    </article>
+  <% end %>
+  <% if @questions.size > 10 %>
+    <%= render "pagination" %>
+  <% end %>
 </section>
