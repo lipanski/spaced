@@ -4,18 +4,19 @@
 
 body {
   font-family: BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+  @apply text-gray-800;
 }
 
 p a {
-  @apply underline text-gray-500;
+  @apply text-blue-500;
 }
 
 a:hover {
-  @apply text-gray-400;
+  @apply text-blue-400;
 }
 
 .text-white a:hover {
-  @apply text-gray-400;
+  @apply text-blue-400;
 }
 
 h1 {
@@ -26,6 +27,70 @@ h2 {
   @apply text-xl mb-4;
 }
 
+h2.subtitle {
+  @apply -mt-4;
+}
+
 p {
   @apply mb-4;
+}
+
+section {
+  @apply container mx-auto mt-8 mt-8;
+}
+
+.field {
+  @apply mb-4;
+}
+
+.field input {
+  @apply block w-full;
+}
+
+.field.horizontal input {
+  @apply inline-block w-auto;
+}
+
+.field.horizontal {
+  @apply flex space-x-2;
+}
+
+p.help {
+  @apply text-sm text-gray-500 mb-0;
+}
+
+p.help.error {
+  @apply text-red-500;
+}
+
+label {
+  @apply font-bold;
+}
+
+input {
+  @apply border rounded border-gray-200 p-1;
+}
+
+input:hover {
+  @apply shadow-inner;
+}
+
+input:focus {
+  @apply border-blue-200 shadow-inner outline-none;
+}
+
+.button {
+  @apply px-4 py-2 bg-gray-200 leading-tight border border-gray-200 rounded;
+}
+
+.button:hover {
+  @apply text-gray-800 bg-gray-100 border-gray-100 outline-none cursor-pointer;
+}
+
+.button.primary {
+  @apply text-white bg-gray-900 border-gray-900;
+}
+
+.button.primary:hover {
+  @apply text-white bg-gray-700 border-gray-700;
 }

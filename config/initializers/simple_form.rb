@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 SimpleForm.setup do |config|
-  # NOTE: tailoring simple_form for Bulma
+  # NOTE: tailoring simple_form
   config.wrappers(:default, tag: "div", class: "field") do |b|
     b.use :html5
     b.use :placeholder
@@ -12,12 +12,12 @@ SimpleForm.setup do |config|
     b.optional(:min_max)
     b.optional(:readonly)
 
-    b.use :label_input, wrap_with: { class: "control" }, error_class: "is-danger"
-    b.use :error, wrap_with: { tag: :p, class: "help is-danger" }
+    b.use :label_input, wrap_with: { class: "control" }, error_class: "error"
+    b.use :error, wrap_with: { tag: :p, class: "help error" }
     b.use :hint,  wrap_with: { tag: :p, class: "help" }
   end
 
-  config.wrappers(:horizontal, tag: "div", class: "field is-horizontal") do |b|
+  config.wrappers(:horizontal, tag: "div", class: "field horizontal") do |b|
     b.use :html5
     b.use :placeholder
 
@@ -33,8 +33,8 @@ SimpleForm.setup do |config|
 
     b.wrapper(tag: :div, class: "field-body") do |fb|
       fb.wrapper(tag: :div, class: "field") do |f|
-        f.use :input, wrap_with: { class: "control" }, error_class: "is-danger"
-        f.use :error, wrap_with: { tag: :p, class: "help is-danger" }
+        f.use :input, wrap_with: { class: "control" }, error_class: "error"
+        f.use :error, wrap_with: { tag: :p, class: "help error" }
         f.use :hint,  wrap_with: { tag: :p, class: "help" }
       end
     end
