@@ -2,10 +2,9 @@
   <%= render "shared/notifications" %>
   <h1>My questions</h1>
   <h2 class="subtitle">Add or edit your flash cards here, then go to <%= link_to("Today", user_root_path) %> and start training your memory</h2>
-  <div class="buttons">
+  <p>
     <%= link_to "Add a new question", new_question_path, class: "button primary" %>
-  </div>
-  <hr/>
+  </p>
   <%= render "pagination" %>
   <% @questions.each do |question| %>
     <article class="message">

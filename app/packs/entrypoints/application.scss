@@ -94,3 +94,15 @@ input:focus, textarea:focus {
 .button.primary:hover {
   @apply text-white bg-gray-700 border-gray-700;
 }
+
+button.link, input[type='submit'].link {
+  @apply text-blue-500 border-none bg-transparent outline-none p-0 cursor-pointer;
+}
+
+button.link:hover, input[type='submit'].link:hover {
+  @apply text-blue-400 shadow-none;
+}
+
+.button_to {
+  display: inline-block;
+}
