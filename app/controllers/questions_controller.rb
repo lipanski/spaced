@@ -31,7 +31,7 @@ class QuestionsController < ApplicationController
       redirect_url = @question.repeat ? new_question_url : questions_url
       redirect_to redirect_url, notice: "The question was successfully added."
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -39,7 +39,7 @@ class QuestionsController < ApplicationController
     if @question.update(question_params)
       redirect_to questions_url, notice: "The question was successfully updated."
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
