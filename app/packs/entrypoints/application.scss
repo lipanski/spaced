@@ -125,7 +125,7 @@ span.tag {
 
 @for $i from 0 through 5 {
   span.grade {
-    max-height: 64px;
+    @apply max-h-10;
   }
 
   span.grade.grade-#{$i}[disabled] {

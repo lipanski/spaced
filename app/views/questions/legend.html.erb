@@ -1,113 +1,44 @@
 <section>
-  <div class="container">
-    <div class="columns">
-      <div class="column is-offset-2 is-8">
-        <h1>How does the rating work?</h1>
-        <h2>You rate your answers by using one of the following weather symbols</h2>
-        <article class="message">
-          <div class="message-body">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-32x32">
-                  <%= image_pack_tag("icons/grade-0.svg", class: "grade-icon") %>
-                </figure>
-              </div>
-              <div class="media-content">
-                <div class="content">
-                  <p class="has-text-weight-bold">Complete blackout</p>
-                  <p>You couldn't remember the answer at all. Once you uncovered the answer, you weren't even close.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-        <article class="message">
-          <div class="message-body">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-32x32">
-                  <%= image_pack_tag("icons/grade-1.svg", class: "grade-icon") %>
-                </figure>
-              </div>
-              <div class="media-content">
-                <div class="content">
-                  <p class="has-text-weight-bold">Incorrect answer, the correct one was remembered</p>
-                  <p>Once you uncovered the answer, you remembered you had some knowledge of it.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-        <article class="message">
-          <div class="message-body">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-32x32">
-                  <%= image_pack_tag("icons/grade-2.svg", class: "grade-icon") %>
-                </figure>
-              </div>
-              <div class="media-content">
-                <div class="content">
-                  <p class="has-text-weight-bold">Incorrect answer, the correct one seemed easy to recall</p>
-                  <p>Once you uncovered the answer, you remembered it quite well.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-        <article class="message">
-          <div class="message-body">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-32x32">
-                  <%= image_pack_tag("icons/grade-3.svg", class: "grade-icon") %>
-                </figure>
-              </div>
-              <div class="media-content">
-                <div class="content">
-                  <p class="has-text-weight-bold">Correct answer, recalled with serious difficulty</p>
-                  <p>You got the answer more or less right, but you had difficulties in remembering it.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-        <article class="message">
-          <div class="message-body">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-32x32">
-                  <%= image_pack_tag("icons/grade-4.svg", class: "grade-icon") %>
-                </figure>
-              </div>
-              <div class="media-content">
-                <div class="content">
-                  <p class="has-text-weight-bold">Perfect answer after a hesitation</p>
-                  <p>Your answer was perfect but after some hesitation.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-        <article class="message">
-          <div class="message-body">
-            <div class="media">
-              <div class="media-left">
-                <figure class="image is-32x32">
-                  <%= image_pack_tag("icons/grade-5.svg", class: "grade-icon") %>
-                </figure>
-              </div>
-              <div class="media-content">
-                <div class="content">
-                  <p class="has-text-weight-bold">Perfect answer</p>
-                  <p>Your answer was perfect. There was no hesitation.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-        <%= link_to "Go back", :back, class: "button primary" %>
-      </div>
-    </div>
+  <h1>How does the rating work?</h1>
+  <h2 class="subtitle">You rate your answers by using one of the following weather symbols</h2>
+
+  <%= render partial: "shared/card", locals: {
+    image_path: asset_bundle_path("grade-0.svg"),
+    title: "Complete blackout",
+    description: "You couldn't remember the answer at all. Once you uncovered the answer, you weren't even close."
+  } %>
+
+  <%= render partial: "shared/card", locals: {
+    image_path: asset_bundle_path("grade-1.svg"),
+    title: "Incorrect answer, the correct one was remembered",
+    description: "Once you uncovered the answer, you remembered you had some knowledge of it."
+  } %>
+
+  <%= render partial: "shared/card", locals: {
+    image_path: asset_bundle_path("grade-2.svg"),
+    title: "Incorrect answer, the correct one seemed easy to recall",
+    description: "Once you uncovered the answer, you remembered it quite well."
+  } %>
+
+  <%= render partial: "shared/card", locals: {
+    image_path: asset_bundle_path("grade-3.svg"),
+    title: "Correct answer, recalled with serious difficulty",
+    description: "You got the answer more or less right, but you had difficulties in remembering it."
+  } %>
+
+  <%= render partial: "shared/card", locals: {
+    image_path: asset_bundle_path("grade-4.svg"),
+    title: "Perfect answer after a hesitation",
+    description: "Your answer was perfect but after some hesitation."
+  } %>
+
+  <%= render partial: "shared/card", locals: {
+    image_path: asset_bundle_path("grade-5.svg"),
+    title: "Perfect answer",
+    description: "Your answer was perfect. There was no hesitation."
+  } %>
+
+  <div class="mt-6">
+    <%= link_to "Go back", :back, class: "button primary" %>
   </div>
 </section>
