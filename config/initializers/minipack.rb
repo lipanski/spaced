@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Minipack.configuration do |c|
   # By default c.cache is set to `false`, which means an application always parses a
   # manifest.json. In development, you should set cache false usually.
@@ -34,7 +36,7 @@ Minipack.configuration do |c|
   c.build_cache_key = [
     "package.json", "package-lock.json", "yarn.lock", "webpack.config.js",
     "webpackfile.js", "config/webpack.config.js", "config/webpackfile.js",
-    "app/packs/**/*",
+    "app/packs/**/*"
   ]
   #
   # You can override it.

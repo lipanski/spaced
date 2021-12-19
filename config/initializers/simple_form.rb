@@ -3,7 +3,7 @@
 SimpleForm.setup do |config|
   # NOTE: tailoring simple_form
   config.wrappers(:default, tag: "div", class: "field") do |b|
-    b.use :html5
+    b.use :html5 # rubocop:disable Naming/VariableNumber
     b.use :placeholder
 
     b.optional(:maxlength)
@@ -18,7 +18,7 @@ SimpleForm.setup do |config|
   end
 
   config.wrappers(:horizontal, tag: "div", class: "field horizontal") do |b|
-    b.use :html5
+    b.use :html5 # rubocop:disable Naming/VariableNumber
     b.use :placeholder
 
     b.optional(:maxlength)

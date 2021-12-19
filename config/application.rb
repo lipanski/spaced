@@ -27,7 +27,7 @@ module Spaced
     config.load_defaults(6.0)
 
     # NOTE: custom configuration - see https://guides.rubyonrails.org/configuring.html#custom-configuration
-    config.x.public_url = URI.parse(ENV.fetch("SPACED_PUBLIC_URL") { "http://localhost:3000" })
+    config.x.public_url = URI.parse(ENV.fetch("SPACED_PUBLIC_URL", "http://localhost:3000"))
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
