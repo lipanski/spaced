@@ -1,10 +1,10 @@
-<div class="columns">
-  <div class="column">
+<div class="flex flex-wrap-reverse justify-between mt-4 mb-4 items-center">
+  <div>
     <%= form_for(questions_path, method: :get) do |f| %>
       <%= text_field_tag :q, params[:q], placeholder: "Search" %>
     <% end %>
   </div>
-  <div class="column has-text-right-tablet">
+  <div>
     <%= pagy_prev_link(@pagy, html: { class: "button" }) %>
     <%= pagy_next_link(@pagy, html: { class: "button" }) %>
   </div>

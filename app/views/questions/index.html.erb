@@ -2,38 +2,34 @@
   <%= render "shared/notifications" %>
   <h1>My questions</h1>
   <h2 class="subtitle">Add or edit your flash cards here, then go to <%= link_to("Today", user_root_path) %> and start training your memory</h2>
-  <p>
+  <div class="pb-6 mb-4 border-b">
     <%= link_to "Add a new question", new_question_path, class: "button primary" %>
-  </p>
+  </div>
   <%= render "pagination" %>
   <% @questions.each do |question| %>
-    <article class="message">
-      <div class="message-body is-dark">
-        <div class="is-pulled-left">
-          <div class="tags">
-            <% question.tag_names.each do |tag_name| %>
-              <span class="tag is-dark">
-                <%= tag_name %>
-              </span>
-            <% end %>
-          </div>
-          <p class="is-size-4">
-            <%= question.description %>
-          </p>
+    <article class="bg-gray-200 p-4 mb-4">
+      <div class="flex flex-wrap-reverse justify-between mb-4">
+        <div class="space-x-1">
+          <% question.tag_names.each do |tag_name| %>
+            <span class="bg-gray-800 text-white text-sm border border-gray-900 rounded py-1 px-2">
+              <%= tag_name %>
+            </span>
+          <% end %>
         </div>
-        <p class="is-pulled-right is-size-7">
+        <div class="text-sm">
           <%= question.created_at %>
-        </p>
-        <div class="is-clearfix"></div>
-        <p>
-          <%= question.expected_answer %>
-        </p>
-        <br/>
-        <p class="is-size-7">
-          <%= link_to "Edit", edit_question_path(question) %>
-          &nbsp;•&nbsp;
-          <%= link_to "Destroy", question, method: :delete, data: { confirm: "Are you sure?" } %>
-        </p>
+        </div>
+      </div>
+      <div class="text-xl">
+        <%= question.description %>
+      </div>
+      <div>
+        <%= question.expected_answer %>
+      </div>
+      <div class="text-sm mt-4">
+        <%= link_to "Edit", edit_question_path(question) %>
+        &nbsp;•&nbsp;
+        <%= button_to "Remove", question, class: "link", method: :delete, data: { controller: "confirm", confirm_message_value: "Are you sure?" } %>
       </div>
     </article>
   <% end %>

@@ -1,10 +1,10 @@
-<div class="container mx-auto flex flex-row justify-between items-center pt-2 pb-2">
-  <div class="left">
+<nav class="container mx-auto flex flex-wrap justify-between items-center pt-2 pb-2">
+  <div>
     <%= link_to "SPACED", user_signed_in? ? user_root_path : root_path, class: "text-3xl font-bold hover:text-black" %>
   </div>
-  <div class="right space-x-4">
+  <div class="space-x-4">
     <% if user_signed_in? %>
-      <%= link_to "+", new_question_path, class: "button primary" %>
+      <%= link_to "+", new_question_path, class: "button primary outline" %>
       <%= link_to "Today", user_root_path %>
       <%= link_to "My questions", questions_path %>
       <%= link_to "My tags", tags_path %>
@@ -16,4 +16,4 @@
       <%= link_to "Login", new_user_session_path %>
     <% end %>
   </div>
-</div>
+</nav>
