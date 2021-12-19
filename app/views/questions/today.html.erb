@@ -1,8 +1,8 @@
-<section class="md:w-4/6 md:pt-24">
+<section class="medium">
   <%= render "shared/notifications" %>
   <% if @question.present? %>
     <h2>Answer the following question, reveal the answer and rate your performance</h2>
-    <article data-controller="today" class="border border-black p-4 mb-4">
+    <article data-controller="today" class="border border-gray-200 shadow-md p-4 mb-4">
       <% if @question.tag_names.present? %>
         <div class="space-x-2 mb-8">
           <% @question.tag_names.each do |tag_name| %>
@@ -15,25 +15,25 @@
       <div class="text-3xl font-bold mb-8">
         <%= @question.description %>
       </div>
-      <div>
+      <div class="mb-8">
         <%= link_to "Show answer", "#", data: { action: "today#showAnswer" } %>
       </div>
       <div class="hidden" data-target="today.answer">
         <div class="mb-8">
           <%= @question.expected_answer %>
         </div>
-        <div class="grid grid-cols-6 gap-2 mb-2">
-          <% (0..5).each do |grade| %>
-            <%= button_to question_answers_path(question_id: @question, grade: grade), method: :post, form_class: "text-center border border-gray-300 pt-2" do %>
-              <span class="grade grade-<%= grade %>"></span>
-            <% end %>
+      </div>
+      <div class="grid grid-cols-6 gap-2 mb-2">
+        <% (0..5).each do |grade| %>
+          <%= button_to question_answers_path(question_id: @question, grade: grade), disabled: true, method: :post, form_class: "text-center border border-gray-300 pt-2", data: { target: "today.grade" } do %>
+            <span class="grade grade-<%= grade %>"></span>
           <% end %>
-        </div>
-        <div class="text-sm">
-          <%= link_to "How does the rating work?", legend_questions_path %>
-        </div>
+        <% end %>
       </div>
     </article>
+    <div class="text-sm">
+      <%= link_to "How does the rating work?", legend_questions_path %>
+    </div>
   <% else %>
     <h1>Good job!</h1>
     <h2 class="subtitle">You've answered all the questions for today. Come back tomorrow for more.</h2>

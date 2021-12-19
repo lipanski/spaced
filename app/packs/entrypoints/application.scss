@@ -4,7 +4,7 @@
 
 body {
   font-family: BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
-  @apply text-gray-800;
+  @apply text-gray-800 px-2 md:px-8;
 }
 
 a {
@@ -15,7 +15,7 @@ a:hover {
   @apply text-blue-400;
 }
 
-nav a {
+nav a, nav input[type='submit'].link {
   @apply text-gray-900;
 }
 
@@ -40,7 +40,15 @@ p {
 }
 
 section {
-  @apply container mx-auto mt-8 mt-8;
+  @apply container mx-auto my-8;
+}
+
+section.narrow {
+  @apply md:w-1/3 md:pt-24;
+}
+
+section.medium {
+  @apply lg:w-2/3 lg:pt-24;
 }
 
 .field {
@@ -128,15 +136,16 @@ span.tag {
     @apply max-h-10;
   }
 
-  span.grade.grade-#{$i}[disabled] {
+  button[disabled] span.grade.grade-#{$i} {
+    @apply cursor-not-allowed;
     content: url("~images/icons/grade-#{$i}-outline.svg");
   }
 
-  span.grade.grade-#{$i}:not([disabled]) {
+  button:not([disabled]) span.grade.grade-#{$i} {
     content: url("~images/icons/grade-#{$i}.svg");
   }
 
-  span.grade.grade-#{$i}:not([disabled]):hover {
-    opacity: 0.5;
+  button:not([disabled]) span.grade.grade-#{$i}:hover {
+    @apply opacity-50;
   }
 }
