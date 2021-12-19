@@ -5,24 +5,25 @@
     <% if @tags.any? %>
       Visualize, edit or remove tags
     <% else %>
-      You don't have any tags yet. Tags are created when you <%= link_to("add new questions", new_question_path) %>.
+      You don't have any tags yet. Tags can be created on the fly as you <%= link_to("add new questions", new_question_path) %>.
     <% end %>
   </h2>
   <% @tags.each do |tag| %>
-    <p>
-      <div class="card">
-        <div class="card-content">
-          <p class="title">
-            <%= tag.name %>
-          </p>
-        </div>
-        <footer class="card-footer">
-          <%= link_to "Questions", questions_path(q: "tag:#{tag.name}") %>
-          <%= link_to "Edit", edit_tag_path(tag) %>
-          <%= link_to "Remove tag", tag, method: :delete, data: { confirm: "This will remove the tag but not the questions. Are you sure?" } %>
-          <%= link_to "Remove questions", tag_path(tag, include_questions: 1), method: :delete, data: { confirm: "This will remove all the tagged questions. Are you sure?" } %>
-        </footer>
+    <article class="bg-gray-200 p-4 mb-4">
+      <div class="mb-4">
+        <span class="tag">
+          <%= tag.name %>
+        </span>
       </div>
-    </p>
+      <div class="text-sm mt-4">
+        <%= link_to "Questions", questions_path(q: "tag:#{tag.name}") %>
+        &nbsp;•&nbsp;
+        <%= link_to "Edit", edit_tag_path(tag) %>
+        &nbsp;•&nbsp;
+        <%= button_to "Remove tag", tag, class: "link", method: :delete, data: { controller: "confirm", confirm_message_value: "This will remove the tag but not the questions. Are you sure?" } %>
+        &nbsp;•&nbsp;
+        <%= button_to "Remove questions", tag_path(tag, include_questions: 1), class: "link", method: :delete, data: { controller: "confirm", confirm_message_value: "This will remove all the tagged questions. Are you sure?" } %>
+      </div>
+    </article>
   <% end %>
 </section>

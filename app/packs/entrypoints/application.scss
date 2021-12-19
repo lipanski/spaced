@@ -118,3 +118,7 @@ button.link:hover, input[type='submit'].link:hover {
 .button_to {
   display: inline-block;
 }
+
+span.tag {
+  @apply bg-gray-800 text-white text-sm border border-gray-900 rounded py-1 px-2;
+}
