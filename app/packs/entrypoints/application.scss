@@ -122,3 +122,21 @@ button.link:hover, input[type='submit'].link:hover {
 span.tag {
   @apply bg-gray-800 text-white text-sm border border-gray-900 rounded py-1 px-2;
 }
+
+@for $i from 0 through 5 {
+  span.grade {
+    max-height: 64px;
+  }
+
+  span.grade.grade-#{$i}[disabled] {
+    content: url("~images/icons/grade-#{$i}-outline.svg");
+  }
+
+  span.grade.grade-#{$i}:not([disabled]) {
+    content: url("~images/icons/grade-#{$i}.svg");
+  }
+
+  span.grade.grade-#{$i}:not([disabled]):hover {
+    opacity: 0.5;
+  }
+}

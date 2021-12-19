@@ -5,8 +5,8 @@ export default class extends Controller {
 
   showAnswer(event) {
     event.preventDefault()
-    event.currentTarget.classList.add("is-hidden")
-    this.answerTarget.classList.remove("is-hidden")
+    event.currentTarget.classList.add("hidden")
+    this.answerTarget.classList.remove("hidden")
     this.gradeLinkTargets.forEach(function(gradeLink) {
       gradeLink.removeAttribute("disabled")
     })
