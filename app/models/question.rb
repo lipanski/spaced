@@ -30,6 +30,7 @@
 class Question < ApplicationRecord
   include CacheablePerUser
   include PgSearch::Model
+  include Answerable
 
   # NOTE: simple and decently fast search
   pg_search_scope(:search,

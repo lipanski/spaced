@@ -5,7 +5,7 @@ class AnswersController < ApplicationController
 
   def create
     question = current_user.questions.find(params[:question_id])
-    answered = AnswerQuestion.new(current_user, question, params[:grade]).call
+    answered = question.answer(current_user, params[:grade])
 
     unless answered
       flash[:alert] = "Couldn't save your answer. Please try again."
