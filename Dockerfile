@@ -29,6 +29,6 @@ COPY --from=dependencies /usr/local/bundle/ /usr/local/bundle/
 COPY --chown=app --from=dependencies /node_modules/ node_modules/
 COPY --chown=app . ./
 
-RUN RAILS_ENV=production SECRET_KEY_BASE=assets bundle exec rake assets:precompile
+RUN NODE_ENV=production yarn build
 
 CMD ["bin/start"]
