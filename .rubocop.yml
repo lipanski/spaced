@@ -1,5 +1,6 @@
 # See https://github.com/bbatsov/rubocop/blob/master/manual/cops.md
 AllCops:
+  NewCops: enable
   DisplayCopNames: true
   Exclude:
   - ".git/**/*"

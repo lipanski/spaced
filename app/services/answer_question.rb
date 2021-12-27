@@ -37,7 +37,7 @@ class AnswerQuestion
 
   def new_e_factor
     @new_e_factor ||= begin
-      computed = @question.e_factor + (0.1 - (5 - @grade) * (0.08 + (5 - @grade) * 0.02))
+      computed = @question.e_factor + (0.1 - ((5 - @grade) * (0.08 + ((5 - @grade) * 0.02))))
       [computed.round(4), 1.3].max
     end
   end
