@@ -1,12 +1,12 @@
 <% if alert %>
-  <div class="content notification is-danger is-light" data-controller="notification">
-    <button class="delete" data-action="notification#hide">x</button>
+  <div class="rounded bg-red-200 text-white font-bold p-4 mb-4" data-controller="notification">
+    <button data-action="notification#hide" class="float-right">✖</button>
     <%= alert %>
   </div>
 <% end %>
 <% if notice %>
-  <div class="content notification is-light" data-controller="notification">
-    <button class="delete" data-action="notification#hide">x</button>
+  <div class="rounded bg-green-200 text-white font-bold p-4 mb-4" data-controller="notification">
+    <button data-action="notification#hide" class="float-right">✖</button>
     <%= notice %>
   </div>
 <% end %>
