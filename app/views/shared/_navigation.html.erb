@@ -1,10 +1,17 @@
-<nav class="container mx-auto flex flex-wrap justify-between items-center pt-2 pb-2">
-  <div>
+<nav class="container mx-auto pt-2 pb-2 lg:flex lg:flex-wrap lg:justify-between lg:items-center" data-controller="navigation">
+  <span>
     <%= link_to "SPACED", user_signed_in? ? user_root_path : root_path, class: "text-3xl font-bold hover:text-black" %>
-  </div>
-  <div class="space-x-4">
+  </span>
+  <span class="lg:hidden float-right">
+    <%= link_to "#", data: { action: "navigation#toggle" } do %>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+      </svg>
+    <% end %>
+  </span>
+  <span class="links hidden flex flex-col mt-4 space-y-4 lg:mt-0 lg:inline lg:space-x-4 lg:space-y-0" data-target="navigation.menu">
     <% if user_signed_in? %>
-      <%= link_to "+", new_question_path, class: "button primary outline" %>
+      <%= link_to "New", new_question_path %>
       <%= link_to "Today", user_root_path %>
       <%= link_to "My questions", questions_path %>
       <%= link_to "My tags", tags_path %>
@@ -15,5 +22,5 @@
       <%= link_to "Register", new_user_registration_path %>
       <%= link_to "Login", new_user_session_path %>
     <% end %>
-  </div>
+  </span>
 </nav>
