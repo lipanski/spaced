@@ -37,12 +37,12 @@
 #
 
 class User < ApplicationRecord
+  include AnswersQuestions
+
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable,
     :trackable, :lockable, :confirmable
 
-  has_many :questions, dependent: :destroy
-  has_many :answers
   has_many :tags, dependent: :destroy
   has_many :api_credentials, dependent: :destroy
 

@@ -53,8 +53,7 @@ class QuestionsController < ApplicationController
       redirect_to questions_url
     end
 
-    next_question = FindNextQuestion.new(current_user).call
-    @question = QuestionDecorator.decorate(next_question)
+    @question = QuestionDecorator.decorate(current_user.next_question)
   end
 
   def legend; end
