@@ -51,6 +51,18 @@ section.medium {
   @apply lg:w-2/3 lg:pt-24;
 }
 
+.notification {
+  @apply rounded text-white font-bold p-4 mb-4;
+}
+
+.notification.error {
+  @apply bg-red-400;
+}
+
+.notification.success {
+  @apply bg-green-400;
+}
+
 .field {
   @apply mb-4;
 }

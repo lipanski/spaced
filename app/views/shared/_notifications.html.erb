@@ -1,11 +1,11 @@
 <% if alert %>
-  <div class="rounded bg-red-200 text-white font-bold p-4 mb-4" data-controller="notification">
+  <div class="notification error" data-controller="notification">
     <button data-action="notification#hide" class="float-right">✖</button>
     <%= alert %>
   </div>
 <% end %>
 <% if notice %>
-  <div class="rounded bg-green-200 text-white font-bold p-4 mb-4" data-controller="notification">
+  <div class="notification success" data-controller="notification">
     <button data-action="notification#hide" class="float-right">✖</button>
     <%= notice %>
   </div>
