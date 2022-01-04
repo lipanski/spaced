@@ -6,6 +6,6 @@ class MainController < ApplicationController
   def about; end
 
   def start
-    redirect_to user_signed_in? ? user_root_path : new_user_registration_path
+    redirect_to user_signed_in? ? user_root_url : new_user_registration_url
   end
 end
