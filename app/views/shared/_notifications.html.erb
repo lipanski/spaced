@@ -1,10 +1,10 @@
-<% if alert %>
+<% if defined?(alert) && alert %>
   <div class="notification error" data-controller="notification">
     <button data-action="notification#hide" class="float-right">✖</button>
     <%= alert %>
   </div>
 <% end %>
-<% if notice %>
+<% if defined?(notice) && notice %>
   <div class="notification success" data-controller="notification">
     <button data-action="notification#hide" class="float-right">✖</button>
     <%= notice %>
