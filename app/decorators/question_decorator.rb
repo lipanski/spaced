@@ -2,7 +2,7 @@
 
 class QuestionDecorator < Draper::Decorator
   # NOTE: avoid delegate_all, the decorator should be the public interface for our model
-  delegate :id, :description, :expected_answer, :persisted?
+  delegate :id, :description, :expected_answer, :persisted?, :to_key
 
   def created_at
     I18n.l(object.created_at, format: :default)
