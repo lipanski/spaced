@@ -36,5 +36,8 @@ Rails.application.routes.draw do
 
   if Rails.env.development?
     get "/graphiql", to: "graphql#graphiql"
+
+    # `turbo_stream_from` includes an actioncable pack pointing to the wrong asset server
+    get "/packs/js/:pack", pack: /[^\/]+/, to: redirect(status: 302) { |params, _request| "http://localhost:8080/packs/js/#{params[:pack]}" }
   end
 end

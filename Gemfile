@@ -12,6 +12,8 @@ gem "pg", ">= 0.18", "< 2.0"
 gem "pg_search"
 gem "puma", "~> 4.3"
 gem "rack-timeout" # NOTE: timeout requests (puma doesn't)
+gem "redis"
+gem "hiredis"
 
 # API
 gem "graphql"
