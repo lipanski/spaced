@@ -5,7 +5,7 @@ source "https://rubygems.org"
 ruby "2.7.1"
 
 # Core
-gem "rails", "~> 6.1.3"
+gem "rails", "~> 6.1"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "devise"
 gem "pg", ">= 0.18", "< 2.0"
