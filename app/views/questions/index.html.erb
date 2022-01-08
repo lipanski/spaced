@@ -7,33 +7,35 @@
   </div>
   <%= render "pagination" %>
   <% @questions.each do |question| %>
-    <article class="bg-gray-200 p-4 mb-4">
-      <div class="flex flex-wrap-reverse justify-between">
-        <div>
-          <div class="space-x-1 mb-4">
-            <% question.tag_names.each do |tag_name| %>
-              <span class="tag">
-                <%= tag_name %>
-              </span>
-            <% end %>
-          </div>
-          <div class="text-xl">
-            <%= question.description %>
-          </div>
+    <%= turbo_frame_tag dom_id(question), target: "_top" do %>
+      <article class="bg-gray-200 p-4 mb-4">
+        <div class="flex flex-wrap-reverse justify-between">
           <div>
-            <%= question.expected_answer %>
+            <div class="space-x-1 mb-4">
+              <% question.tag_names.each do |tag_name| %>
+                <span class="tag">
+                  <%= tag_name %>
+                </span>
+              <% end %>
+            </div>
+            <div class="text-xl">
+              <%= question.description %>
+            </div>
+            <div>
+              <%= question.expected_answer %>
+            </div>
+            <div class="text-sm mt-4">
+              <%= link_to "Edit", edit_question_path(question) %>
+              &nbsp;•&nbsp;
+              <%= button_to "Remove", question, class: "link", method: :delete, data: { controller: "confirm", confirm_message_value: "Are you sure?" } %>
+            </div>
           </div>
-          <div class="text-sm mt-4">
-            <%= link_to "Edit", edit_question_path(question) %>
-            &nbsp;•&nbsp;
-            <%= button_to "Remove", question, class: "link", method: :delete, data: { controller: "confirm", confirm_message_value: "Are you sure?" } %>
+          <div class="text-sm">
+            <%= question.created_at %>
           </div>
         </div>
-        <div class="text-sm">
-          <%= question.created_at %>
-        </div>
-      </div>
-    </article>
+      </article>
+    <% end %>
   <% end %>
   <% if @questions.size > 10 %>
     <%= render "pagination" %>

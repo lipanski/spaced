@@ -36,7 +36,9 @@ class TagsController < ApplicationController
         "The tag was successfully removed."
       end
 
-    redirect_to tags_url, notice: message
+    response = turbo_stream.remove(@tag)
+    response += turbo_stream.replace(:notifications, partial: "shared/notifications", locals: { notice: message })
+    render turbo_stream: response
   end
 
   private

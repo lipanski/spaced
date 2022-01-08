@@ -1,6 +1,5 @@
 development:
-  adapter: redis
-  channel_prefix: spaced_development
+  adapter: async
 
 test:
   adapter: test

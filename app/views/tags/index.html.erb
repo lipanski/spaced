@@ -9,21 +9,23 @@
     <% end %>
   </h2>
   <% @tags.each do |tag| %>
-    <article class="bg-gray-200 p-4 mb-4">
-      <div class="mb-4">
-        <span class="tag">
-          <%= tag.name %>
-        </span>
-      </div>
-      <div class="text-sm mt-4">
-        <%= link_to "Questions", questions_path(q: "tag:#{tag.name}") %>
-        &nbsp;•&nbsp;
-        <%= link_to "Edit", edit_tag_path(tag) %>
-        &nbsp;•&nbsp;
-        <%= button_to "Remove tag", tag, class: "link", method: :delete, data: { controller: "confirm", confirm_message_value: "This will remove the tag but not the questions. Are you sure?" } %>
-        &nbsp;•&nbsp;
-        <%= button_to "Remove questions", tag_path(tag, include_questions: 1), class: "link", method: :delete, data: { controller: "confirm", confirm_message_value: "This will remove all the tagged questions. Are you sure?" } %>
-      </div>
-    </article>
+    <%= turbo_frame_tag dom_id(tag), target: "_top" do %>
+      <article class="bg-gray-200 p-4 mb-4">
+        <div class="mb-4">
+          <span class="tag">
+            <%= tag.name %>
+          </span>
+        </div>
+        <div class="text-sm mt-4">
+          <%= link_to "Questions", questions_path(q: "tag:#{tag.name}") %>
+          &nbsp;•&nbsp;
+          <%= link_to "Edit", edit_tag_path(tag) %>
+          &nbsp;•&nbsp;
+          <%= button_to "Remove tag", tag, class: "link", method: :delete, data: { controller: "confirm", confirm_message_value: "This will remove the tag but not the questions. Are you sure?" } %>
+          &nbsp;•&nbsp;
+          <%= button_to "Remove questions", tag_path(tag, include_questions: 1), class: "link", method: :delete, data: { controller: "confirm", confirm_message_value: "This will remove all the tagged questions. Are you sure?" } %>
+        </div>
+      </article>
+    <% end %>
   <% end %>
 </section>

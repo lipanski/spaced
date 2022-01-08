@@ -1,12 +1,14 @@
-<% if defined?(alert) && alert %>
-  <div class="notification error" data-controller="notification">
-    <button data-action="notification#hide" class="float-right">✖</button>
-    <%= alert %>
-  </div>
-<% end %>
-<% if defined?(notice) && notice %>
-  <div class="notification success" data-controller="notification">
-    <button data-action="notification#hide" class="float-right">✖</button>
-    <%= notice %>
-  </div>
+<%= turbo_frame_tag :notifications do %>
+  <% if defined?(alert) && alert %>
+    <div class="notification error" data-controller="notification">
+      <button data-action="notification#hide" class="float-right">✖</button>
+      <%= alert %>
+    </div>
+  <% end %>
+  <% if defined?(notice) && notice %>
+    <div class="notification success" data-controller="notification">
+      <button data-action="notification#hide" class="float-right">✖</button>
+      <%= notice %>
+    </div>
+  <% end %>
 <% end %>

@@ -45,7 +45,10 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy!
-    redirect_to questions_url, notice: "The question was successfully removed."
+
+    response = turbo_stream.remove(@question)
+    response += turbo_stream.replace(:notifications, partial: "shared/notifications", locals: { notice: "The question was removed." })
+    render turbo_stream: response
   end
 
   def today
