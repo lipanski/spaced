@@ -2,15 +2,15 @@
 
 source "https://rubygems.org"
 
-ruby "2.7.1"
+ruby "3.2.2"
 
 # Core
-gem "rails", "~> 6.1"
-gem "bootsnap", ">= 1.4.2", require: false
+gem "rails", "~> 7.0"
+gem "bootsnap", require: false
 gem "devise"
-gem "pg", ">= 0.18", "< 2.0"
+gem "pg"
 gem "pg_search"
-gem "puma", "~> 4.3"
+gem "puma"
 gem "rack-timeout" # NOTE: timeout requests (puma doesn't)
 gem "redis"
 gem "hiredis"
@@ -36,8 +36,8 @@ group :development, :test do
 end
 
 group :development do
-  gem "web-console", ">= 3.3.0"
-  gem "listen", ">= 3.0.5", "< 3.2"
+  gem "web-console"
+  gem "listen"
   gem "annotate" # NOTE: annotates models with schema information
   gem "database_consistency", require: false # NOTE: checks for model validation consistency
   gem "foreman"
@@ -45,7 +45,7 @@ group :development do
 end
 
 group :test do
-  gem "capybara", ">= 2.15"
+  gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
   gem "sql_spy"

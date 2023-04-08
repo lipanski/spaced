@@ -16,7 +16,7 @@
 # Countless extra: Paginate without any count, saving one query per rendering
 # See https://ddnexus.github.io/pagy/extras/countless
 require "pagy/extras/countless"
-Pagy::VARS[:cycle] = false
+Pagy::DEFAULT[:cycle] = false
 
 # Elasticsearch Rails extra: Paginate `ElasticsearchRails::Results` objects
 # See https://ddnexus.github.io/pagy/extras/elasticsearch_rails
