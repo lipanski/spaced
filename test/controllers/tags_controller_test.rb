@@ -14,10 +14,11 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
     tag = Tag.create!(user: @user, name: "aaa")
 
     assert_difference("Tag.count", -1) do
-      delete(tag_url(tag))
+      delete(tag_url(tag, as: :turbo_stream))
     end
 
-    assert_redirected_to(tags_url)
+    assert_turbo_stream(action: :remove, target: tag)
+    assert_turbo_stream(action: :replace, target: :notifications)
   end
 
   test "DELETE /tags/:id doesn't remove the previously tagged questions" do
@@ -31,7 +32,8 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
       end
     end
 
-    assert_redirected_to(tags_url)
+    assert_turbo_stream(action: :remove, target: tag)
+    assert_turbo_stream(action: :replace, target: :notifications)
   end
 
   test "DELETE /tags/:id/?include_questions=1 removes the tag and the tagged questions" do
@@ -45,6 +47,7 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
       end
     end
 
-    assert_redirected_to(tags_url)
+    assert_turbo_stream(action: :remove, target: tag)
+    assert_turbo_stream(action: :replace, target: :notifications)
   end
 end

@@ -59,6 +59,7 @@ class QuestionsControllerTest < ActionDispatch::IntegrationTest
       delete(question_url(question))
     end
 
-    assert_redirected_to(questions_url)
+    assert_turbo_stream(action: :remove, target: question)
+    assert_turbo_stream(action: :replace, target: :notifications)
   end
 end
