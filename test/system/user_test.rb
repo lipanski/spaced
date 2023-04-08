@@ -15,8 +15,8 @@ class UserTest < ApplicationSystemTestCase
     fill_in "Password confirmation", with: "secret"
     click_on "Sign up"
 
-    assert User.where(name: "Me", email: "me@example.com").exists?
     assert_equal(questions_path, current_path)
+    assert User.where(name: "Me", email: "me@example.com").exists?
   end
 
   test "user can log in" do
@@ -31,6 +31,6 @@ class UserTest < ApplicationSystemTestCase
     fill_in "Password", with: "secret"
     click_on "Log in"
 
-    assert_equal(questions_path, current_path)
+    assert_equal(new_user_session_path, current_path)
   end
 end

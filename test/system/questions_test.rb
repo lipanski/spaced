@@ -20,9 +20,9 @@ class QuestionsTest < ApplicationSystemTestCase
     fill_in "Expected answer", with: "Bucharest"
     click_on "Create Question"
 
-    assert(Question.where(user: @user, description: "What is the capital of Romania?").exists?)
     assert_text "The question was successfully added."
     assert_equal(questions_path, current_path)
+    assert(Question.where(user: @user, description: "What is the capital of Romania?").exists?)
   end
 
   test "adding a new question with the 'Add another' option enabled" do
@@ -36,8 +36,8 @@ class QuestionsTest < ApplicationSystemTestCase
     check "Add another"
     click_on "Create Question"
 
-    assert(Question.where(user: @user, description: "What is the capital of Romania?").exists?)
     assert_text "The question was successfully added."
     assert_equal(new_question_path, current_path)
+    assert(Question.where(user: @user, description: "What is the capital of Romania?").exists?)
   end
 end
