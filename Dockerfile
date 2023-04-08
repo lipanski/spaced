@@ -1,4 +1,4 @@
-FROM ruby:2.7.1-alpine AS base
+FROM ruby:3.2.2-alpine AS base
 
 RUN apk add --update \
   postgresql-dev \
@@ -29,6 +29,6 @@ COPY --from=dependencies /usr/local/bundle/ /usr/local/bundle/
 COPY --chown=app --from=dependencies /node_modules/ node_modules/
 COPY --chown=app . ./
 
-RUN NODE_ENV=production yarn build
+RUN NODE_OPTIONS=--openssl-legacy-provider NODE_ENV=production yarn build
 
 CMD ["bin/start"]
